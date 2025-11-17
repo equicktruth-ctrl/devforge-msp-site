@@ -4,7 +4,7 @@ exports.handler = async function(event, context) {
   try {
     const { question } = JSON.parse(event.body);
 
-    const apiResponse = await fetch('https://api.perplexity.ai/ask', {
+    const apiResponse = await fetch('https://api.perplexity.ai/chat/completions', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${process.env.PERPLEXITY_API_KEY}`,
