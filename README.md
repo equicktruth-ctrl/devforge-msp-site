@@ -35,3 +35,4 @@ This portfolio highlights my journey from restaurant management into IT, remote 
 
 Portfolio by Erik Vigorito, Florida, professional manager developing IT and AI skills for remote work.
 
+Trigger Netlify redeploy
