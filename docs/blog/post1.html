@@ -51,6 +51,15 @@
       <li>Expanding interactivity with JavaScript features.</li>
     </ul>
 
+            <h3>Step 9: Why the "Ask Me Anything" Feature Only Works on Netlify</h3>
+            <ul>
+                          <li>GitHub Pages is a static hosting platform—it serves HTML, CSS, and JavaScript files only, with no server-side processing.</li>
+                          <li>Netlify supports serverless functions, allowing me to run backend code that safely handles API calls using secrets.</li>
+                          <li>The "Ask Me Anything" feature needs to call the Perplexity AI API, which requires a backend to protect the API key and process the request.</li>
+                          <li>On GitHub Pages, exposing the API key in frontend code would be a security risk, so the feature is disabled for this deployment.</li>
+                          <li>For now, visitors to the GitHub Pages version see the portfolio without this interactive feature—the full experience is available at <a href="https://erikcloudportal.netlify.app" target="_blank">erikcloudportal.netlify.app</a>.</li>
+                      </ul>
+
     <hr>
     <a href="../index.html">&larr; Back to Portfolio</a>
   </div>
