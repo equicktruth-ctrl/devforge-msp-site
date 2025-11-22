@@ -1,6 +1,6 @@
 # Portfolio Website
 
-This portfolio highlights my journey from C-Store management into IT, remote work, and data annotation. It’s designed as a single-page site with added sections for contact, certifications, and technical content, then expandable with a evolvng blog for tutorials and professional updates.
+This portfolio highlights my journey from C-Store management into IT, remote work, and data annotation. It’s designed as a single-page site with added sections for contact, certifications, and technical content, then expandable with a evolving blog for tutorials and professional updates.
 
 ## Structure
 
