@@ -4,366 +4,323 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skills - Erik Vigorito</title>
+    <link rel="icon" href="logo_lightmode_onheader.png" type="image/png">
+    
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-          background-color: #f5f5f5;
-          color: #333;
-        }
-
-        header {
-          position: relative;    
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background: linear-gradient(135deg, #0d6efd 0%, #6610f2 60%, #28a745 100%);
-          color: white;
-          margin-bottom: 2.5rem;
-          padding: 2rem 0 1.5rem 0;
-        }
-
-        #mode-logo {
-          position: absolute;
-          left: 2rem;
-          top: 10%;
-          height: 64px;
-          border-radius: 10px;
-          box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-        }
-
-        .header-content {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          flex: 1;
-        }
-
-        nav {
-          margin-bottom: 1.5rem;
-        }
-
-        @media (max-width: 768px) {
-          header {
-            flex-direction: column;
-          }
-          #mode-logo {
-            margin-bottom: 1rem;
-            margin-left: 0;
-          }
-        }
-
-        nav a {
-          margin: 0 1rem;
-          color: #fff;
-          font-weight: 600;
-          text-decoration: none;
-          font-size: 1.2rem;
-          padding: 0.5rem 1rem;
-          transition: background 0.2s;
-          border-radius: 7px;
-        }
-
-        nav a:hover {
-          background: rgba(255, 255, 255, 0.15);
-          color: #ffe0b2;
-        }
-
-        nav a.active {
-          background: rgba(255, 255, 255, 0.25);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #ffffff;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         body.dark-mode {
-          background-color: #23272f;
-          color: #fff;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
         }
 
-        body.dark-mode header {
-          background: linear-gradient(135deg, #333e60 0%, #37375c 60%, #1a422e 100%);
-          color: #d1dbe7;
-        }
-
-        /* Projects Page Specific Styles */
-        .projects-hero {
-            padding: 60px 20px;
-            text-align: center;
-            color: white;
-        }
-
-        .projects-hero h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        .projects-hero p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .projects-controls {
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .repo-count {
-            color: #666;
-            font-size: 1rem;
-        }
-
-        .sort-dropdown {
-            padding: 10px 15px;
-            border: 2px solid #667eea;
-            border-radius: 8px;
-            background: white;
-            color: #667eea;
-            font-size: 1rem;
-            cursor: pointer;
-            font-weight: 600;
-        }
-
-        .projects-grid {
-            max-width: 1200px;
-            margin: 0 auto 60px;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 25px;
-        }
-
-        .project-card {
-            background: white;
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            padding: 25px;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.15);
-            border-color: #667eea;
-        }
-
-        .project-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .project-name {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #1f2937;
-            margin: 0;
-            flex: 1;
-        }
-
-        .project-name a {
-            color: #667eea;
-            text-decoration: none;
-        }
-
-        .project-name a:hover {
-            text-decoration: underline;
-        }
-
-        .external-link-icon {
-            color: #667eea;
-            font-size: 1.1rem;
-        }
-
-        .project-description {
-            color: #6b7280;
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 15px;
-            min-height: 60px;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 15px;
-        }
-
-        .tag {
-            background: #f3f4f6;
-            color: #667eea;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        .project-meta {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 15px;
-            color: #6b7280;
-            font-size: 0.9rem;
-        }
-
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .language-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            display: inline-block;
-        }
-
-        .github-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #667eea;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
+        header {
+            background: linear-gradient(135deg, #0d6efd 0%, #6610f2 60%, #28a745 100%);
+            padding: 2rem 0;
+            position: fixed;
             width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        #mode-logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 80px;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        #mode-logo:hover {
+            transform: scale(1.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
             justify-content: center;
-        }
-
-        .github-btn:hover {
-            background: #5568d3;
-            transform: translateX(3px);
-        }
-
-        .loading {
-            text-align: center;
-            padding: 60px 20px;
-            color: #667eea;
-            font-size: 1.2rem;
-        }
-
-        .error {
-            text-align: center;
-            padding: 60px 20px;
-            color: #dc2626;
-            font-size: 1.2rem;
-        }
-
-        .view-all-btn {
-            display: inline-flex;
             align-items: center;
-            gap: 8px;
-            background: white;
-            color: #667eea;
-            padding: 15px 30px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            border: 2px solid #667eea;
-            margin: 40px auto;
-            transition: all 0.3s ease;
         }
 
-        .view-all-btn:hover {
-            background: #667eea;
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
             color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
 
-        .view-all-container {
+        nav a:hover, nav a.active {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        #mode-toggle {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-left: 1rem;
+        }
+
+        #mode-toggle:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+        .skills-section {
+            max-width: 1200px;
+            margin: 120px auto 0;
+            padding: 3rem 2rem;
+        }
+
+        .skills-hero {
             text-align: center;
-            margin: 40px 0;
+            margin-bottom: 3rem;
         }
 
-        footer {
-          padding: 2rem 0;
-          text-align: center;
-          color: #666;
-          background: #f8f9fa;
-          margin-top: 3rem;
-          border-top: 1px solid #e3e3e3;
-          font-size: 1rem;
+        .skills-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #0d6efd 0%, #6610f2 60%, #28a745 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        footer a {
-          color: #6610f2;
-          text-decoration: underline;
+        body.dark-mode .skills-hero h1 {
+            background: linear-gradient(135deg, #4d9eff 0%, #9656f2 60%, #48c765 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        footer a:hover {
-          color: #0d6efd;
+        .skills-hero p {
+            font-size: 1.1rem;
+            color: #666;
         }
 
-        /* Responsive Design */
+        body.dark-mode .skills-hero p {
+            color: #b0b0b0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .skill-category {
+            background: #2a2a2a;
+            box-shadow: 0 2px 10px rgba(255,255,255,0.05);
+        }
+
+        body.dark-mode .skill-category:hover {
+            box-shadow: 0 5px 20px rgba(255,255,255,0.1);
+        }
+
+        .category-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-category h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #0d6efd;
+        }
+
+        body.dark-mode .skill-category h3 {
+            color: #4d9eff;
+        }
+
+        .skill-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-badge {
+            background: linear-gradient(135deg, #0d6efd 0%, #6610f2 60%, #28a745 100%);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-block;
+            transition: transform 0.2s ease;
+        }
+
+        .skill-badge:hover {
+            transform: scale(1.05);
+        }
+
+        .learning-section {
+            background: linear-gradient(135deg, rgba(13, 110, 253, 0.1) 0%, rgba(102, 16, 242, 0.1) 60%, rgba(40, 167, 69, 0.1) 100%);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        body.dark-mode .learning-section {
+            background: linear-gradient(135deg, rgba(77, 158, 255, 0.1) 0%, rgba(150, 86, 242, 0.1) 60%, rgba(72, 199, 101, 0.1) 100%);
+        }
+
+        .learning-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #0d6efd 0%, #6610f2 60%, #28a745 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .certifications {
+            margin-top: 3rem;
+        }
+
+        .certifications h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #0d6efd 0%, #6610f2 60%, #28a745 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .cert-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+        }
+
+        body.dark-mode .cert-card {
+            background: #2a2a2a;
+        }
+
+        .cert-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #0d6efd;
+        }
+
+        body.dark-mode .cert-card h4 {
+            color: #4d9eff;
+        }
+
+        .cert-card p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        body.dark-mode .cert-card p {
+            color: #b0b0b0;
+        }
+
         @media (max-width: 768px) {
-            .projects-hero h1 {
+            nav {
+                flex-wrap: wrap;
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .skills-hero h1 {
                 font-size: 2rem;
             }
 
-            .projects-grid {
+            .skills-grid {
                 grid-template-columns: 1fr;
             }
 
-            .projects-controls {
-                flex-direction: column;
-                align-items: flex-start;
+            #mode-logo {
+                width: 60px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <header>
-    <img id="mode-logo" src="assets/logo_lightmode_onheader.png" alt="Logo" />
-    <div class="header-content">
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="projects.html">Projects</a>
-            <a href="skills.html" class="active">Skills</a>
-            <a href="index.html#about">About</a>
-            <a href="index.html#blog">Blog</a>
-            <a href="index.html#contact">Contact</a>
-            <a href="index.html#education">Education</a>
-            <button id="mode-toggle" aria-label="Toggle light and dark mode">Toggle Light/Dark Mode</button>
-        </nav>
-        
-        <!-- Hero Section -->
-        <div class="projects-hero">
+        <img id="mode-logo" src="logo_lightmode_onheader.png" alt="Logo">
+        <div class="header-content">
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="projects.html">Projects</a>
+                <a href="skills.html" class="active">Skills</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#blog">Blog</a>
+                <a href="index.html#contact">Contact</a>
+                <a href="index.html#education">Education</a>
+                <button id="mode-toggle" aria-label="Toggle light and dark mode">Toggle Light/Dark Mode</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="skills-section">
+        <div class="skills-hero">
             <h1>Skills & Technologies</h1>
             <p>A comprehensive overview of the technologies, languages, and tools I work with to build amazing software experiences and deliver innovative solutions.</p>
         </div>
-    </div>
-</header>
-    <!-- Hero Section -->
-    <section class="skills-hero">
-        <h1>Skills & Technologies</h1>
-        <p>A comprehensive overview of the technologies, languages, and tools I work with to build amazing software experiences and deliver innovative solutions.</p>
-    </section>
 
-    <!-- Skills Categories -->
-    <div class="skills-container">
         <div class="skills-grid">
-            <!-- Frontend Development -->
             <div class="skill-category">
-                <div class="category-header">
-                    <span class="category-icon">🌐</span>
-                    <h2 class="category-title">Frontend Development</h2>
-                </div>
-                <div class="skills-list">
+                <div class="category-icon">🌐</div>
+                <h3>Frontend Development</h3>
+                <div class="skill-badges">
                     <span class="skill-badge">HTML5</span>
                     <span class="skill-badge">CSS3</span>
                     <span class="skill-badge">JavaScript</span>
@@ -374,13 +331,10 @@
                 </div>
             </div>
 
-            <!-- Backend & APIs -->
             <div class="skill-category">
-                <div class="category-header">
-                    <span class="category-icon">⚙️</span>
-                    <h2 class="category-title">Backend & APIs</h2>
-                </div>
-                <div class="skills-list">
+                <div class="category-icon">⚙️</div>
+                <h3>Backend & APIs</h3>
+                <div class="skill-badges">
                     <span class="skill-badge">Node.js</span>
                     <span class="skill-badge">REST APIs</span>
                     <span class="skill-badge">Perplexity API</span>
@@ -390,13 +344,10 @@
                 </div>
             </div>
 
-            <!-- Data & AI -->
             <div class="skill-category">
-                <div class="category-header">
-                    <span class="category-icon">🤖</span>
-                    <h2 class="category-title">Data & AI</h2>
-                </div>
-                <div class="skills-list">
+                <div class="category-icon">🤖</div>
+                <h3>Data & AI</h3>
+                <div class="skill-badges">
                     <span class="skill-badge">Data Annotation</span>
                     <span class="skill-badge">TensorFlow</span>
                     <span class="skill-badge">AI Fundamentals</span>
@@ -406,13 +357,10 @@
                 </div>
             </div>
 
-            <!-- IT & Cybersecurity -->
             <div class="skill-category">
-                <div class="category-header">
-                    <span class="category-icon">🔒</span>
-                    <h2 class="category-title">IT & Cybersecurity</h2>
-                </div>
-                <div class="skills-list">
+                <div class="category-icon">🔒</div>
+                <h3>IT & Cybersecurity</h3>
+                <div class="skill-badges">
                     <span class="skill-badge">CompTIA A+</span>
                     <span class="skill-badge">Network Security</span>
                     <span class="skill-badge">IT Management</span>
@@ -422,13 +370,10 @@
                 </div>
             </div>
 
-            <!-- Cloud & DevOps -->
             <div class="skill-category">
-                <div class="category-header">
-                    <span class="category-icon">☁️</span>
-                    <h2 class="category-title">Cloud & DevOps</h2>
-                </div>
-                <div class="skills-list">
+                <div class="category-icon">☁️</div>
+                <h3>Cloud & DevOps</h3>
+                <div class="skill-badges">
                     <span class="skill-badge">Netlify</span>
                     <span class="skill-badge">GitHub Pages</span>
                     <span class="skill-badge">Git</span>
@@ -438,78 +383,13 @@
                 </div>
             </div>
 
-            <!-- Tools & Technologies -->
             <div class="skill-category">
-                <div class="category-header">
-                    <span class="category-icon">🛠️</span>
-                    <h2 class="category-title">Tools & Technologies</h2>
-                </div>
-                <div class="skills-list">
+                <div class="category-icon">🛠️</div>
+                <h3>Tools & Technologies</h3>
+                <div class="skill-badges">
                     <span class="skill-badge">VS Code</span>
                     <span class="skill-badge">Excel</span>
                     <span class="skill-badge">Jira</span>
                     <span class="skill-badge">Azure AI</span>
                     <span class="skill-badge">HubSpot CRM</span>
                     <span class="skill-badge">Project Management</span>
-                    <span class="skill-badge">Python</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Always Learning Section -->
-        <div class="learning-section">
-            <h2>Always Learning</h2>
-            <p>Technology evolves rapidly, and I'm committed to continuous learning. I regularly explore new frameworks, tools, and best practices to stay current with industry trends and deliver cutting-edge solutions. Currently expanding my knowledge in data annotation, advanced API integrations, and cloud deployment strategies.</p>
-        </div>
-    </div>
-
-    <!-- Certifications Section -->
-    <section class="certifications-section">
-        <div class="certifications-container">
-            <h2 class="certifications-title">Certifications & Courses</h2>
-            <div class="cert-grid">
-                <!-- IBM Skillsbuild Certifications -->
-                <div class="cert-card">
-                    <div class="cert-name">CompTIA A+ Core 1 & 2</div>
-                    <div class="cert-provider">IBM Skillsbuild</div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-name">AI Fundamentals</div>
-                    <div class="cert-provider">IBM Skillsbuild</div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-name">Big Data Fundamentals</div>
-                    <div class="cert-provider">IBM Skillsbuild</div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-name">Hadoop Fundamentals</div>
-                    <div class="cert-provider">IBM Skillsbuild</div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-name">Project Management Fundamentals</div>
-                    <div class="cert-provider">IBM Skillsbuild</div>
-                </div>
-
-                <!-- LinkedIn Learning Courses -->
-                <div class="cert-card">
-                    <div class="cert-name">Python Essential Training</div>
-                    <div class="cert-provider">LinkedIn Learning</div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-name">Excel Essential Training</div>
-                    <div class="cert-provider">LinkedIn Learning</div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-name">Jira Fundamentals</div>
-                    <div class="cert-provider">LinkedIn Learning</div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-name">Azure AI Fundamentals</div>
-                    <div class="cert-provider">LinkedIn Learning</div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-name">HubSpot CRM Essentials</div>
-                    <div class="cert-provider">LinkedIn Learning</div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-name">T
