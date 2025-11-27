@@ -4,7 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skills - Erik Vigorito</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      position: relative;    
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0d6efd 0%, #6610f2 60%, #28a745 100%);
+      color: white;
+      margin-bottom: 2.5rem;
+      padding: 2rem 0 1.5rem 0;
+    }
+
+    #mode-logo {
+      position: absolute;
+      left: 2rem;
+      top: 10%;
+      height: 64px;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    .header-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+    }
+
+    nav {
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+      }
+      #mode-logo {
+        margin-bottom: 1rem;
+        margin-left: 0;
+      }
+    }
+
+    nav a {
+      margin: 0 1rem;
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1.2rem;
+      padding: 0.5rem 1rem;
+      transition: background 0.2s;
+      border-radius: 7px;
+    }
+
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffe0b2;
+    }
+
+    nav a.active {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    body.dark-mode {
+      background-color: #23272f;
+      color: #fff;
+    }
+
+    body.dark-mode header {
+      background: linear-gradient(135deg, #333e60 0%, #37375c 60%, #1a422e 100%);
+      color: #d1dbe7;
+    }
+
+    footer {
+      padding: 2rem 0;
+      text-align: center;
+      color: #666;
+      background: #f8f9fa;
+      margin-top: 3rem;
+      border-top: 1px solid #e3e3e3;
+      font-size: 1rem;
+    }
+
+    footer a {
+      color: #6610f2;
+      text-decoration: underline;
+    }
+
+    footer a:hover {
+      color: #0d6efd;
+    }
+
+    /* Keep all the Skills page specific styles below this */
+</style>
     <style>
         /* Skills Page Specific Styles */
         .skills-hero {
