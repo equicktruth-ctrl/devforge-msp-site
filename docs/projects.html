@@ -351,28 +351,43 @@
         </div>
     </header>
 
-    <!-- Controls Section -->
-    <div class="projects-controls">
-        <div class="repo-count" id="repoCount">Loading repositories...</div>
-        <select class="sort-dropdown" id="sortDropdown" onchange="sortProjects()">
+            <!-- Controls Section -->
+        <div class="projects-controls">
+          <div class="repo-count" id="repoCount">Loading repositories...</div>
+          <select class="sort-dropdown" id="sortDropdown" onchange="sortProjects()">
             <option value="updated">Recently Updated</option>
             <option value="stars">Most Stars</option>
             <option value="name">Name (A-Z)</option>
-        </select>
-    </div>
+          </select>
+        </div>
 
-    <!-- Projects Grid -->
-    <div class="projects-grid" id="projectsGrid">
-        <div class="loading">Loading your projects from GitHub...</div>
-    </div>
+        <!-- Portfolio Case Study -->
+        <section id="portfolio-build" style="max-width: 900px; margin: 2rem auto 3rem; padding: 2rem; background: #1f2937; border-radius: 12px;">
+          <h2 style="color: #ffffff; margin-bottom: 0.75rem;">How I Built My Portfolio</h2>
+          <p style="color: #d1d5db; margin-bottom: 1rem;">
+            A step-by-step walkthrough of how I designed, developed, and deployed this portfolio website, including layout decisions, GitHub Pages setup, dark mode, and API integrations.
+          </p>
+          <div style="margin-bottom: 1rem; color: #9ca3af;">
+            <strong>Tech used:</strong> HTML, CSS, JavaScript, GitHub Pages, Netlify Functions, Perplexity API.
+          </div>
+          <a href="blog/post1.html" class="github-btn" style="width: auto; display: inline-flex;">
+            Read the Case Study →
+          </a>
+        </section>
 
-    <!-- View All on GitHub Button -->
-    <div class="view-all-container">
-        <a href="https://github.com/equicktruth-ctrl?tab=repositories" target="_blank" class="view-all-btn">
-            <span>View All Projects on GitHub</span>
-            <span>↗</span>
-        </a>
-    </div>
+        <!-- Projects Grid -->
+        <div class="projects-grid" id="projectsGrid">
+          <div class="loading">Loading your projects from GitHub...</div>
+        </div>
+
+
+            <!-- View All on GitHub Button -->
+            <div class="view-all-container">
+                <a href="https://github.com/equicktruth-ctrl?tab=repositories" target="_blank" class="view-all-btn">
+                    <span>View All Projects on GitHub</span>
+                    <span>↗</span>
+                </a>
+            </div>
 
       <!-- Footer -->
   <footer>
