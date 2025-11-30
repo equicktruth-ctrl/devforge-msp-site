@@ -162,6 +162,18 @@ nav {
       color: #aaa;
       border-top: 1px solid #282c34;
     }
+    
+    .btn-custom {
+      background: #6610f2;
+      color: #ffffff;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      border-radius: 7px;
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 0.75rem;
+    }
+
   </style>
 </head>
 
@@ -170,14 +182,15 @@ nav {
     <img id="mode-logo" src="assets/logo_lightmode_onheader.png" alt="Logo" style="height: 64px; margin-right: 1rem;" />
   <div class="header-content">
     <nav>
-      <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
-      <a href="skills.html">Skills</a>
-      <a href="#about">About</a>
-      <a href="#blog">Blog</a>
-      <a href="#contact">Contact</a>
-      <a href="#education">Education</a>
-      <button id="mode-toggle" aria-label="Toggle light and dark mode">Toggle Light/Dark Mode</button>
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="skills.html">Skills</a>
+        <a href="experience.html">Experience</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#blog">Blog</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="skills.html#education">Education</a>
+        <button id="mode-toggle" aria-label="Toggle light and dark mode">Toggle Light/Dark Mode</button>
     </nav>
     <img src="assets/profile.jpg" alt="Erik Vigorito full length" class="profile-img" />
     <h1>Erik Vigorito</h1>
@@ -216,61 +229,25 @@ nav {
         A strategic leader blending traditional management experience with modern AI and digital skills to lead and
         innovate in onsite, remote, and hybrid environments. Dedicated to fostering growth, engagement, and sustainable
         success.
-      </p>
-    </section>
-
-    <section id="experience">
-      <div class="section-title">Professional Experience</div>
-      <ul>
-        <li><strong>Office Manager (part-time), IT</strong>, The Retreat, Orlando, FL — Dec 2024 – Present
-          <ul>
-            <li>Aligned IT service delivery with business objectives, boosting productivity.</li>
-            <li>Introduced cost optimization strategies.</li>
-            <li>Implemented technology upgrades, increasing collaboration and service speed.</li>
-            <li>Optimized vendor contracts; cut processing time by 25%.</li>
-          </ul>
-        </li>
-        <li><strong>Logistics & Operations Specialist</strong>, Mobile Logistics Services, South Central FL — Nov 2017 –
-          Jan 2025
-          <ul>
-            <li>Managed logistics coordination across 17,000 delivery sites.</li>
-            <li>Delivered white-glove support, driving 15% customer satisfaction increase.</li>
-            <li>Reduced delivery times by 15%.</li>
-            <li>Authored/enforced SOPs, optimized dispatch by 20%.</li>
-            <li>Liaison among customers, vendors, and internal teams.</li>
-          </ul>
-        </li>
-        <li><strong>General Manager</strong>, Shell, Fort Pierce, FL — May 2014 – Dec 2017
-          <ul>
-            <li>Directed daily operations, staffing, merchandising, customer experience.</li>
-            <li>Surpassed sales benchmarks by 10%.</li>
-            <li>Reduced inventory waste by 30%.</li>
-            <li>Improved staff engagement/retention; maintained compliance.</li>
-          </ul>
-        </li>
-        <li><strong>General Manager</strong>, RaceTrac, Fort Pierce, FL — Aug 2010 – Apr 2014
-          <ul>
-            <li>Managed multiple stores, drove sales growth and customer satisfaction.</li>
-            <li>Enhanced operational efficiency by 20%.</li>
-            <li>Drove inside sales performance by 17%.</li>
-            <li>Ensured food safety compliance, led financial strategy.</li>
-          </ul>
-        </li>
-      </ul>
-      <img src="assets/julius-hildebrandt-KD6x5YFIxyo-unsplash.jpg" alt="Florida Bridge Scenic" class="scenery-img" />
+     </p>
+     <a href="experience.html" class="btn-custom">View Full Experience</a>
     </section>
 
     <section id="contact">
       <div class="section-title">Contact</div>
+
       <p>Email: <a href="mailto:erikjvigorito@gmail.com">erikjvigorito@gmail.com</a></p>
       <p>LinkedIn: <a href="https://www.linkedin.com/in/erik-j-v" target="_blank" rel="noopener noreferrer">Visit Profile</a></p>
-      <a href="resume.pdf" download class="btn-custom">Download Resume</a>
 
-      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="contact" />
-        <p hidden>
-          <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
-        </p>
+      <!-- Buttons -->
+      <a href="resume.pdf" download class="btn-custom">Download Resume</a>
+      <a href="mailto:erikjvigorito@gmail.com" class="btn-custom">Email Me</a>
+      <a href="https://www.linkedin.com/in/erik-j-v" target="_blank" rel="noopener noreferrer" class="btn-custom">
+        Message on LinkedIn
+      </a>
+
+      <!-- Contact form (mailto, not Netlify) -->
+      <form action="mailto:erikjvigorito@gmail.com" method="POST" enctype="text/plain">
         <p>
           <label>Your Name<br />
             <input type="text" name="name" required />
@@ -291,147 +268,20 @@ nav {
         </p>
       </form>
     </section>
-    <section id="skills">
-      <div class="section-title">Skills & Core Competencies</div>
-      <ul>
-        <li>Leadership & People Management</li>
-        <li>Operations Management</li>
-        <li>Business Strategy &amp; P&amp;L</li>
-        <li>Customer/Guest Experience</li>
-        <li>Logistics & Scheduling</li>
-        <li>Inventory & Merchandising</li>
-        <li>Food Safety & Compliance</li>
-        <li>Incident Response & Safety</li>
-        <li>Process Improvement</li>
-        <li>Process Automation</li>
-        <li>IT & SaaS Administration</li>
-        <li>Access Management</li>
-      </ul>
-    </section>
-    <section id="certifications">
-      <div class="section-title">Certifications</div>
-      <ul>
-        <li>
-          <a href="https://www.linkedin.com/learning/certificates/d5db8760f7802659b652df015ce903875d818de6eea93b1e680df9d0c832b6ca"
-            target="_blank" rel="noopener noreferrer">Using ChatGPT for UX Design Annotations</a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/learning/certificates/bc67e4a8b7882220dd416c83e67e1c7bb07fd9252f1923a71384d734bece7ea0"
-            target="_blank" rel="noopener noreferrer">Strategic Content Marketing: Grow Your Reach on Social Media</a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/learning/certificates/dd0b2edac54b3f043f08a19f0a465770792ba629cc066a562b7a2e1195d9bb06"
-            target="_blank" rel="noopener noreferrer">Storytelling and Content Creation to Transform Your Personal Brand</a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/learning/certificates/634d797ed79b1eb4841e5721d957b1612c90e00a58b2d536215a5c4a6ad9ad5d"
-            target="_blank" rel="noopener noreferrer">AI and Generative AI for Video Content Creation</a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/learning/certificates/a09e9931d63c3071600d783174252e4d86a6f6abf15789e654c18cad8318e6ed"
-            target="_blank" rel="noopener noreferrer">Content Creation: Strategy and Tools</a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/learning/certificates/0e3a5d0c8ba4a2a20bf957fc9d4f0a50122cac152b0a04f9ae5e778f8f5e6fa5"
-            target="_blank" rel="noopener noreferrer">Figma Essential Training</a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/learning/certificates/ae2ef3dc555efd4a79459eb05394ef6f87ac87d69c07d1efa39a332b2f608dd2?trk=share_certificate"
-            target="_blank" rel="noopener noreferrer">Figma: Using Auto Layout</a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/learning/certificates/22ceb583f8fcf1f2f51d5832c59cb8ee2a01c96986ad76369e3683da770aac0c"
-            target="_blank" rel="noopener noreferrer">Designing from Figma to Webflow</a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/learning/certificates/68d30d09573da69d8c33ba333507e99b47735392ec2ac53e53d98c783ccd333c"
-            target="_blank" rel="noopener noreferrer">Brainstorming Tools</a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/learning/certificates/70b3bda08efb2fd256e090ca45c0f3039a8d6ea417bfdd900cb9a2f24c56f23f"
-            target="_blank" rel="noopener noreferrer">Digital Body Language</a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/learning/certificates/f26db445320f675a5d466ed9eeee43409e2f2bd16222de9c5eba97776239b004"
-            target="_blank" rel="noopener noreferrer">Leading Virtual Meetings</a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/learning/certificates/a17d4eeb6a1441a16eaca72e6e6571f9e249d3011ce427e37abdf03add7a18f5"
-            target="_blank" rel="noopener noreferrer">Learning HubSpot CRM</a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/learning/certificates/728fc339d6fe44a81c4f9870a0f470c2f48deaaf0a71097a35f47444fb3f3a27"
-            target="_blank" rel="noopener noreferrer">Microsoft Azure AI Fundamentals (AI-900)</a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/learning/certificates/fbba230180f471bbf124cdc38c3fee9392d40250293c9350a7a8c30ff9d79b42"
-            target="_blank" rel="noopener noreferrer">Microsoft Collaboration: SharePoint, Teams, Groups, Yammer</a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/learning/certificates/a96b2e29ca2a1c87bcae751ae07f94b13ebab61e449b8bf1739e9e194f68f0f4"
-            target="_blank" rel="noopener noreferrer">Python Object-Oriented Programming</a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/learning/certificates/b39b315e0fd2a7e9d042719edd6a8d99eb612c08c9c9bb64c0fcc1efdf3f96e8"
-            target="_blank" rel="noopener noreferrer">TensorFlow 2.0: Working with Images</a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/learning/certificates/b2c8099fc51b3e0d033e93a51191e7a3eee58a0b8d70048040bfafee5cada92c"
-            target="_blank" rel="noopener noreferrer">Time Management: Working from Home</a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/learning/certificates/c6bf914df83dcb4f3d9cb7d0d6452a1f7c89ae7a2e11a1165bb52df30796e182"
-            target="_blank" rel="noopener noreferrer">Agile Project Management with Jira Cloud</a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/learning/certificates/e6681ec759855ffafb5dde331da5f143344561aa4268870f19746fb0c6b5723d?trk=share_certificate"
-            target="_blank" rel="noopener noreferrer">Excel Essential Training (Microsoft 365)</a>
-        </li>
-        <li>
-          <a href="https://lnkd.in/gMxc2fRd" target="_blank" rel="noopener noreferrer">Hands-On Data Annotation: Applied
-            Machine Learning</a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/learning/certificates/4fa6bba14d9dd90898422e211415c66fca83c4bf27371bb840e8bc7912a5a417"
-            target="_blank" rel="noopener noreferrer">Python Essential Training</a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/learning/certificates/f9cbd97d638204f6c19ee1ba12216d066c5359b09e5f9819ded8c1e2fc28d965?trk=share_certificate"
-            target="_blank" rel="noopener noreferrer">Remote Work Foundations</a>
-        </li>
-        <li>
-          <a href="https://www.credly.com/users/erik-vigorito" target="_blank" rel="noopener noreferrer">Artificial
-            Intelligence Fundamentals (IBM, SkillsBuild)</a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/learning/certificates/7868e118e4469653d9b8b9a38b54bd0e1cb38b747b816a720a17e5b2fcf49a67"
-            target="_blank" rel="noopener noreferrer">Automate Your Workflows with Generative AI</a>
-        </li>
-        <li>
-          <a href="https://www.credly.com/badges/1b444ca8-8c58-4780-8c7f-7dd090ab32c8/linked_in_profile" target="_blank"
-            rel="noopener noreferrer">Big Data Foundations - Level 1 (IBM, SkillsBuild)</a>
-        </li>
-        <li>
-          <a href="https://www.credly.com/badges/4fc6e539-8845-40e4-b7b2-8b3e53e9bd5a/linked_in_profile" target="_blank"
-            rel="noopener noreferrer">Hadoop Foundations - Level 1 (IBM, SkillsBuild)</a>
-        </li>
-        <li>
-          <a href="https://www.credly.com/badges/574eb7f8-f2fc-4648-a606-1d1a4d1f1747/linked_in_profile" target="_blank"
-            rel="noopener noreferrer">Project Management Fundamentals (IBM, SkillsBuild)</a>
-        </li>
-        <li>CompTIA A+</li>
-      </ul>
-    </section>
-    <section id="education">
-      <div class="section-title">Education</div>
-      <h3>Bachelor of Science (BS), Information Technology Management & Cybersecurity</h3>
-      <p><strong>Indian River State College</strong>, Fort Pierce, FL</p>
-      <p>Graduated <b>cum laude</b> (GPA: 3.7)</p>
-      <p>
-        Relevant Coursework: Network Security & Cryptography, Systems Analysis & Design, Database Design &
-        Administration, Computer Forensics, Data Mining & Warehousing, Management & Leadership
-      </p>
-    </section>
+        <section id="skills-preview">
+          <div class="section-title">Skills & Core Competencies</div>
+          <div style="margin-top: 1rem;">
+            <a href="skills.html" class="btn-custom">View Skills →</a>
+          </div>
+        </section>
+
+        <section id="certifications-preview">
+          <div class="section-title">Certifications</div>
+          <div style="margin-top: 1rem;">
+            <a href="skills.html#certifications" class="btn-custom">View Certifications →</a>
+          </div>
+        </section>
+
   </main>
   <footer>
     Built with ❤️ • Deployed via Perplexity<br />
