@@ -33,7 +33,7 @@
   <link rel="stylesheet" href="styles.css" />
 
   <style>
-    /* Global backgrounds (match index/services) */
+    /* Global backgrounds (match other pages) */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-image: url("assets/bg-light-circuits.jpg");
@@ -89,6 +89,7 @@
       font-weight: 600;
     }
 
+    /* Nav + toggle */
     nav {
       margin-bottom: 0;
       display: flex;
@@ -185,7 +186,7 @@
       color: #d1d5db;
     }
 
-    /* Controls + grid (from old projects page) */
+    /* Controls + grid */
     .projects-controls {
       max-width: 1200px;
       margin: 30px auto;
@@ -418,11 +419,44 @@
       margin: 0 auto 0.75rem auto;
     }
 
+    /* Desktop default: hide mobile nav */
+    .mobile-nav {
+      display: none;
+    }
+
     @media (max-width: 768px) {
-      nav {
+      /* Hide hero overlay nav; show bar nav */
+      .desktop-nav {
+        display: none;
+      }
+
+      .mobile-nav {
+        display: flex;
         flex-wrap: wrap;
-        gap: 1rem;
+        align-items: center;
         justify-content: center;
+        gap: 0.75rem;
+        background: rgba(0, 0, 0, 0.85);
+        padding: 0.5rem 1rem;
+        width: 100%;
+        margin-bottom: 0.75rem;
+      }
+
+      .mobile-nav a {
+        color: #fff;
+        font-weight: 600;
+        text-decoration: none;
+        margin: 0 0.25rem;
+        font-size: 1rem;
+        white-space: nowrap;
+      }
+
+      .mobile-nav a:hover {
+        text-decoration: underline;
+      }
+
+      .mobile-nav .mode-toggle {
+        margin-left: 0.5rem;
       }
 
       .projects-grid {
@@ -438,19 +472,31 @@
 </head>
 
 <body>
-  <!-- HERO WITH NAV -->
+  <!-- HERO WITH DESKTOP NAV -->
   <header class="hero-header">
-    <nav class="hero-nav">
+    <nav class="hero-nav desktop-nav">
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
       <a href="experience.html">Experience</a>
       <a href="projects.html" class="active">Client Stories</a>
       <a href="index.html#contact">Contact</a>
-      <button id="mode-toggle" class="mode-toggle" aria-label="Toggle light and dark mode">
+      <button id="mode-toggle-projects-desktop" class="mode-toggle theme-toggle" aria-label="Toggle light and dark mode">
         <span class="icon">☀️</span>
       </button>
     </nav>
   </header>
+
+  <!-- MOBILE NAV BAR -->
+  <nav class="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="experience.html">Experience</a>
+    <a href="projects.html" class="active">Client Stories</a>
+    <a href="index.html#contact">Contact</a>
+    <button id="mode-toggle-projects-mobile" class="mode-toggle theme-toggle" aria-label="Toggle light and dark mode">
+      <span class="icon">☀️</span>
+    </button>
+  </nav>
 
   <main class="container">
     <section id="projects-intro" style="max-width: 900px; margin: 2rem auto 1rem; padding: 0 20px;">
@@ -464,8 +510,8 @@
 
     <section id="projects-snapshot" style="max-width: 900px; margin: 1.5rem auto 2.5rem; padding: 0 20px; text-align:center;">
       <img src="assets/projects-office.jpg"
-          alt="DevForge IT workspace with monitoring dashboards"
-          style="width:100%; max-width:520px; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,0.35); margin-bottom:1rem;" />
+           alt="DevForge IT workspace with monitoring dashboards"
+           style="width:100%; max-width:520px; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,0.35); margin-bottom:1rem;" />
       <h2 style="font-size:1.5rem; font-weight:700; margin-bottom:0.5rem;">
         What Our Projects Look Like
       </h2>
@@ -633,44 +679,47 @@
     fetchGitHubRepos();
   </script>
 
-  <!-- Light/Dark Mode Script -->
+  <!-- Shared Light/Dark Mode Script -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      const toggleButton = document.getElementById("mode-toggle");
+      const toggleButtons = document.querySelectorAll('.theme-toggle');
       const body = document.body;
-      const logo = document.getElementById("mode-logo");
-      const iconSpan = toggleButton ? toggleButton.querySelector(".icon") : null;
+      const logo = document.getElementById('mode-logo');
 
       function updateLogo() {
-        if (body.classList.contains("dark-mode")) {
-          logo.src = "assets/logo_darkmode_onheader.png";
+        if (!logo) return;
+        if (body.classList.contains('dark-mode')) {
+          logo.src = 'assets/logo_darkmode_onheader.png';
         } else {
-          logo.src = "assets/logo_lightmode_onheader.png";
+          logo.src = 'assets/logo_lightmode_onheader.png';
         }
       }
 
-      function updateIcon() {
-        if (!iconSpan) return;
-        iconSpan.textContent = body.classList.contains("dark-mode") ? "🌙" : "☀️";
-      }
-
-      if (localStorage.getItem("theme") === "dark") {
-        body.classList.add("dark-mode");
-      }
-      updateLogo();
-      updateIcon();
-
-      if (toggleButton) {
-        toggleButton.addEventListener("click", function () {
-          body.classList.toggle("dark-mode");
-          localStorage.setItem(
-            "theme",
-            body.classList.contains("dark-mode") ? "dark" : "light"
-          );
-          updateLogo();
-          updateIcon();
+      function updateIcons() {
+        toggleButtons.forEach(btn => {
+          const iconSpan = btn.querySelector('.icon');
+          if (!iconSpan) return;
+          iconSpan.textContent = body.classList.contains('dark-mode') ? '🌙' : '☀️';
         });
       }
+
+      if (localStorage.getItem('theme') === 'dark') {
+        body.classList.add('dark-mode');
+      }
+      updateLogo();
+      updateIcons();
+
+      toggleButtons.forEach(btn => {
+        btn.addEventListener('click', function () {
+          body.classList.toggle('dark-mode');
+          localStorage.setItem(
+            'theme',
+            body.classList.contains('dark-mode') ? 'dark' : 'light'
+          );
+          updateLogo();
+          updateIcons();
+        });
+      });
     });
   </script>
 </body>

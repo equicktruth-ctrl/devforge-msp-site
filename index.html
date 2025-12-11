@@ -29,7 +29,6 @@
   <meta property="og:site_name" content="DevForge IT" />
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
 
   <style>
     /* Light + dark global backgrounds */
@@ -72,8 +71,8 @@
       display: flex;
       align-items: flex-start;
       justify-content: flex-start;
-      padding-top: 180px;      /* move nav down under devforge.it.com */
-      padding-left: 520px;    /* move nav to the right */
+      padding-top: 180px;
+      padding-left: 520px;
       margin-bottom: 0;
     }
 
@@ -158,7 +157,7 @@
       color: #e6f7ff;
     }
 
-    /* Nav + toggle */
+    /* Nav + toggle shared */
     nav {
       margin-bottom: 0;
       display: flex;
@@ -346,11 +345,52 @@
       margin: 0 auto 0.75rem auto;
     }
 
-    /* Mobile adjustments */
+    /* Desktop default: hide mobile nav */
+    .mobile-nav {
+      display: none;
+    }
+
     @media (max-width: 768px) {
-      nav {
+      /* Hide hero overlay nav */
+      .desktop-nav {
+        display: none;
+      }
+
+      /* Show bar nav with toggle next to Contact */
+      .mobile-nav {
+        display: flex;
         flex-wrap: wrap;
-        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        background: rgba(0, 0, 0, 0.85);
+        padding: 0.5rem 1rem;
+        width: 100%;
+        margin-bottom: 0.75rem;
+      }
+
+      .mobile-nav a {
+        color: #fff;
+        font-weight: 600;
+        text-decoration: none;
+        margin: 0 0.25rem;
+        font-size: 1rem;
+        white-space: nowrap;
+      }
+
+      .mobile-nav a:hover {
+        text-decoration: underline;
+      }
+
+      .mobile-nav .mode-toggle {
+        margin-left: 0.5rem;
+      }
+
+      /* Slightly shorter hero image on phones */
+      .hero-header {
+        height: 200px;
+        padding: 0;
+        align-items: center;
         justify-content: center;
       }
 
@@ -390,19 +430,31 @@
 </head>
 
 <body>
-  <!-- FIRST HERO IMAGE WITH NAV -->
+  <!-- FIRST HERO IMAGE (desktop-only nav inside) -->
   <header class="hero-header">
-    <nav class="hero-nav">
+    <nav class="hero-nav desktop-nav">
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
       <a href="experience.html">Experience</a>
       <a href="projects.html">Client Stories</a>
       <a href="index.html#contact">Contact</a>
-      <button id="mode-toggle" class="mode-toggle" aria-label="Toggle light and dark mode">
+      <button id="mode-toggle-desktop" class="mode-toggle theme-toggle" aria-label="Toggle light and dark mode">
         <span class="icon">☀️</span>
       </button>
     </nav>
   </header>
+
+  <!-- MOBILE NAV BAR (appears only on small screens) -->
+  <nav class="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="experience.html">Experience</a>
+    <a href="projects.html">Client Stories</a>
+    <a href="index.html#contact">Contact</a>
+    <button id="mode-toggle-mobile" class="mode-toggle theme-toggle" aria-label="Toggle light and dark mode">
+      <span class="icon">☀️</span>
+    </button>
+  </nav>
 
   <!-- SECOND HERO BAND WITH OWNER GRAPHIC + ICONS -->
   <section class="owner-hero">
@@ -434,57 +486,52 @@
     </div>
   </section>
 
-  <!-- OPTIONAL THIRD COLORED BAND BELOW IMAGES -->
-  
   <main class="container">
-
     <section id="who-we-help">
       <div class="section-title">Who We Help</div>
       <p>
         DevForge IT supports small businesses, solo professionals, and creators who need practical IT, security, and web help without an in‑house tech team — across Central Florida and remote.
-
       </p>
     </section>
 
     <section id="about">
-  <div class="section-title">About DevForge IT</div>
+      <div class="section-title">About DevForge IT</div>
 
-  <!-- Sunset + quote + text overlay -->
-  <div class="about-container">
-    <img src="assets/about-sunset.jpg"
-         alt="Sunset over open field" class="about-bg" />
-    <div class="about-overlay">
-      <p class="about-quote">
-        DevForge IT is built on the idea that reliable systems and security should feel simple, not stressful.
-      </p>
+      <div class="about-container">
+        <img src="assets/about-sunset.jpg"
+             alt="Sunset over open field" class="about-bg" />
+        <div class="about-overlay">
+          <p class="about-quote">
+            DevForge IT is built on the idea that reliable systems and security should feel simple, not stressful.
+          </p>
 
-      <p class="about-body">
-        DevForge IT is a two‑person team combining operations, web development, and cybersecurity experience to support small
-        businesses, creators, and remote teams. We design, secure, and maintain the tools people actually use every day —
-        from laptops and cloud apps to websites and workflows.
-      </p>
+          <p class="about-body">
+            DevForge IT is a two‑person team combining operations, web development, and cybersecurity experience to support small
+            businesses, creators, and remote teams. We design, secure, and maintain the tools people actually use every day —
+            from laptops and cloud apps to websites and workflows.
+          </p>
 
-      <p class="about-body">
-        <strong>Where we work:</strong>
-        We primarily serve Central Florida — from Tampa Bay to Orlando and both coasts — while also partnering with fully remote
-        clients who need dependable, easy‑to‑reach IT support.
-      </p>
+          <p class="about-body">
+            <strong>Where we work:</strong>
+            We primarily serve Central Florida — from Tampa Bay to Orlando and both coasts — while also partnering with fully remote
+            clients who need dependable, easy‑to‑reach IT support.
+          </p>
 
-      <p class="about-body">
-        <strong>Who we are:</strong>
-        Erik focuses on IT operations, support, and digital workflows, while Dammie focuses on
-        cybersecurity engineering, threat protection, and secure system design. Together, we cover both
-        day‑to‑day reliability and long‑term security for your technology.
-      </p>
+          <p class="about-body">
+            <strong>Who we are:</strong>
+            Erik focuses on IT operations, support, and digital workflows, while Dammie focuses on
+            cybersecurity engineering, threat protection, and secure system design. Together, we cover both
+            day‑to‑day reliability and long‑term security for your technology.
+          </p>
 
-      <p class="about-body">
-        <strong>What we do:</strong>
-        Managed IT support, cybersecurity hardening, web and cloud setup, automation, and practical “done-with-you” guidance
-        for teams that want modern tools without enterprise complexity.
-      </p>
-    </div>
-  </div>
-    
+          <p class="about-body">
+            <strong>What we do:</strong>
+            Managed IT support, cybersecurity hardening, web and cloud setup, automation, and practical “done-with-you” guidance
+            for teams that want modern tools without enterprise complexity.
+          </p>
+        </div>
+      </div>
+
       <section id="team-links">
         <div class="section-title">Connect with the Team</div>
         <p>
@@ -498,45 +545,47 @@
           <a href="https://github.com/Secmode " target="_blank" rel="noopener noreferrer">GitHub</a>
         </p>
       </section>
-
     </section>
-        <section id="services">
-  <div class="section-title">Services</div>
 
-  <p>
-    DevForge IT helps small businesses and creators keep their technology fast, secure, and easy to use —
-    across Central Florida and remote.
-  </p>
+    <section id="services">
+      <div class="section-title">Services</div>
 
-  <ul>
-    <li>
-      <strong>Managed IT Support:</strong>
-      Ongoing help with devices, updates, troubleshooting, and everyday “my tech is broken” problems so your work doesn’t stop.
-    </li>
-    <li>
-      <strong>Cybersecurity Tune‑Ups:</strong>
-      Practical security checks, hardening, and best‑practice setups to reduce risk from phishing, weak passwords, and unpatched systems.
-    </li>
-    <li>
-      <strong>Small Business Websites:</strong>
-      Clean, fast sites that make you look professional and are easy to update, built for service businesses and creators.
-    </li>
-    <li>
-      <strong>Cloud Setup & Automation:</strong>
-      Organizing tools like Microsoft 365 and other SaaS apps, plus light scripts and automations to cut manual, repetitive work.
-    </li>
-  </ul>
-    <section id="blog">
-      <div class="section-title">Blog</div>
-      <article>
-        <h3>5 Simple Security Wins for Small Teams</h3>
-        <small>December 11, 2025</small>
-        <p>
-          A quick, non‑technical guide to a few small changes — like better passwords, updates, and backups —
-          that dramatically reduce risk for small businesses and creators.
-        </p>
-        <a href="blog/post1.html" class="btn-custom">Read the Story →</a>
-      </article>
+      <p>
+        DevForge IT helps small businesses and creators keep their technology fast, secure, and easy to use —
+        across Central Florida and remote.
+      </p>
+
+      <ul>
+        <li>
+          <strong>Managed IT Support:</strong>
+          Ongoing help with devices, updates, troubleshooting, and everyday “my tech is broken” problems so your work doesn’t stop.
+        </li>
+        <li>
+          <strong>Cybersecurity Tune‑Ups:</strong>
+          Practical security checks, hardening, and best‑practice setups to reduce risk from phishing, weak passwords, and unpatched systems.
+        </li>
+        <li>
+          <strong>Small Business Websites:</strong>
+          Clean, fast sites that make you look professional and are easy to update, built for service businesses and creators.
+        </li>
+        <li>
+          <strong>Cloud Setup & Automation:</strong>
+          Organizing tools like Microsoft 365 and other SaaS apps, plus light scripts and automations to cut manual, repetitive work.
+        </li>
+      </ul>
+
+      <section id="blog">
+        <div class="section-title">Blog</div>
+        <article>
+          <h3>5 Simple Security Wins for Small Teams</h3>
+          <small>December 11, 2025</small>
+          <p>
+            A quick, non‑technical guide to a few small changes — like better passwords, updates, and backups —
+            that dramatically reduce risk for small businesses and creators.
+          </p>
+          <a href="blog/post1.html" class="btn-custom">Read the Story →</a>
+        </article>
+      </section>
     </section>
 
     <section id="brand-statement">
@@ -568,7 +617,7 @@
 
       <p>LinkedIn:
         <a href="https://www.linkedin.com/in/erik-j-v"
-          target="_blank" rel="noopener noreferrer">
+           target="_blank" rel="noopener noreferrer">
           Connect with Erik on LinkedIn
         </a>
       </p>
@@ -577,8 +626,8 @@
         Email DevForge IT
       </a>
       <a href="https://www.linkedin.com/in/erik-j-v"
-        target="_blank" rel="noopener noreferrer"
-        class="btn-custom">
+         target="_blank" rel="noopener noreferrer"
+         class="btn-custom">
         Message on LinkedIn
       </a>
 
@@ -628,93 +677,58 @@
         Email a Question to DevForge IT
       </a>
     </section>
-
   </main>
 
   <footer>
-  <img id="mode-logo" src="assets/logo_lightmode_onheader.png" alt="DevForge IT logo" />
-  <div>
-    Built with HTML, CSS & JavaScript in VS Code • Deployed from GitHub to our live DevForge IT site
-  </div>
-</footer>
+    <img id="mode-logo" src="assets/logo_lightmode_onheader.png" alt="DevForge IT logo" />
+    <div>
+      Built with HTML, CSS & JavaScript in VS Code • Deployed from GitHub to our live DevForge IT site
+    </div>
+  </footer>
 
-  <!--
+  <!-- Light/Dark Mode toggle with sun/moon icon for all theme-toggle buttons -->
   <script>
-    async function askPerplexity(question) {
-      try {
-        const response = await fetch("/.netlify/functions/ask", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ question }),
-        });
-
-        if (!response.ok) {
-          throw new Error(`API error: ${response.status} ${response.statusText}`);
-        }
-
-        const data = await response.json();
-        return data.answer || "No answer received.";
-      } catch (error) {
-        return "Error: " + error.message;
-      }
-    }
-
-    document.getElementById("ask-btn").addEventListener("click", async () => {
-      const questionEl = document.getElementById("question-input");
-      const answerEl = document.getElementById("answer-output");
-      const question = questionEl.value.trim();
-
-      if (!question) {
-        answerEl.textContent = "Please enter a question.";
-        return;
-      }
-
-      answerEl.textContent = "Thinking...";
-      const answer = await askPerplexity(question);
-      answerEl.textContent = answer;
-    });
-  </script>
-  --> 
-  <script>
-    // Light/Dark Mode toggle with sun/moon icon
     document.addEventListener('DOMContentLoaded', function () {
-      const toggleButton = document.getElementById("mode-toggle");
+      const toggleButtons = document.querySelectorAll('.theme-toggle');
       const body = document.body;
-      const logo = document.getElementById("mode-logo");
-      const iconSpan = toggleButton ? toggleButton.querySelector(".icon") : null;
+      const logo = document.getElementById('mode-logo');
 
       function updateLogo() {
-        if (body.classList.contains("dark-mode")) {
-          logo.src = "assets/logo_darkmode_onheader.png";
+        if (!logo) return;
+        if (body.classList.contains('dark-mode')) {
+          logo.src = 'assets/logo_darkmode_onheader.png';
         } else {
-          logo.src = "assets/logo_lightmode_onheader.png";
+          logo.src = 'assets/logo_lightmode_onheader.png';
         }
       }
 
-      function updateIcon() {
-        if (!iconSpan) return;
-        iconSpan.textContent = body.classList.contains("dark-mode") ? "🌙" : "☀️";
-      }
-
-      if (localStorage.getItem("theme") === "dark") {
-        body.classList.add("dark-mode");
-      }
-      updateLogo();
-      updateIcon();
-
-      if (toggleButton) {
-        toggleButton.addEventListener("click", function () {
-          body.classList.toggle("dark-mode");
-          localStorage.setItem(
-            "theme",
-            body.classList.contains("dark-mode") ? "dark" : "light"
-          );
-          updateLogo();
-          updateIcon();
+      function updateIcons() {
+        toggleButtons.forEach(btn => {
+          const iconSpan = btn.querySelector('.icon');
+          if (!iconSpan) return;
+          iconSpan.textContent = body.classList.contains('dark-mode') ? '🌙' : '☀️';
         });
       }
+
+      // Apply saved theme
+      if (localStorage.getItem('theme') === 'dark') {
+        body.classList.add('dark-mode');
+      }
+      updateLogo();
+      updateIcons();
+
+      // Attach click handler to all toggle buttons
+      toggleButtons.forEach(btn => {
+        btn.addEventListener('click', function () {
+          body.classList.toggle('dark-mode');
+          localStorage.setItem(
+            'theme',
+            body.classList.contains('dark-mode') ? 'dark' : 'light'
+          );
+          updateLogo();
+          updateIcons();
+        });
+      });
     });
   </script>
 

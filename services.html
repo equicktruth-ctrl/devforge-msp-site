@@ -322,41 +322,77 @@
     }
 
     /* Mobile */
-    @media (max-width: 768px) {
-      nav {
-        flex-wrap: wrap;
-        gap: 1rem;
-        justify-content: center;
-      }
+    /* Desktop: hide mobile bar */
+.mobile-nav {
+  display: none;
+}
 
-      .owner-links.hero-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1.25rem;
-      }
-
-      .hero-right {
-        width: 100%;
-        justify-content: flex-start;
-      }
+/* Mobile */
+  @media (max-width: 768px) {
+    .desktop-nav {
+      display: none;
     }
+
+    .mobile-nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      background: rgba(0, 0, 0, 0.85);
+      padding: 0.5rem 1rem;
+      width: 100%;
+      margin-bottom: 0.75rem;
+    }
+
+    .mobile-nav a {
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      margin: 0 0.25rem;
+      font-size: 1rem;
+      white-space: nowrap;
+    }
+
+    .mobile-nav a:hover {
+      text-decoration: underline;
+    }
+
+    .mobile-nav .mode-toggle {
+      margin-left: 0.5rem;
+    }
+
+    /* keep your existing hero-header/owner-links/hero-right rules here */
+  }
+
   </style>
 </head>
 
 <body>
   <!-- HERO WITH NAV -->
   <header class="hero-header">
-    <nav class="hero-nav">
+    <nav class="hero-nav desktop-nav">
       <a href="index.html">Home</a>
       <a href="services.html" class="active">Services</a>
       <a href="experience.html">Experience</a>
       <a href="projects.html">Client Stories</a>
       <a href="index.html#contact">Contact</a>
-      <button id="mode-toggle" class="mode-toggle" aria-label="Toggle light and dark mode">
+      <button id="mode-toggle-desktop" class="mode-toggle theme-toggle" aria-label="Toggle light and dark mode">
         <span class="icon">☀️</span>
       </button>
     </nav>
   </header>
+
+  <nav class="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="services.html" class="active">Services</a>
+    <a href="experience.html">Experience</a>
+    <a href="projects.html">Client Stories</a>
+    <a href="index.html#contact">Contact</a>
+    <button id="mode-toggle-mobile" class="mode-toggle theme-toggle" aria-label="Toggle light and dark mode">
+      <span class="icon">☀️</span>
+    </button>
+  </nav>
 
   <!-- OWNER HERO BAND -->
   <section class="owner-hero">
@@ -505,45 +541,48 @@
   </footer>
 
   <script>
-    // Light/Dark Mode toggle with sun/moon icon (same pattern as index.html, using "theme")
     document.addEventListener('DOMContentLoaded', function () {
-      const toggleButton = document.getElementById("mode-toggle");
+      const toggleButtons = document.querySelectorAll('.theme-toggle');
       const body = document.body;
-      const logo = document.getElementById("mode-logo");
-      const iconSpan = toggleButton ? toggleButton.querySelector(".icon") : null;
+      const logo = document.getElementById('mode-logo');
 
       function updateLogo() {
         if (!logo) return;
-        if (body.classList.contains("dark-mode")) {
-          logo.src = "assets/logo_darkmode_onheader.png";
+        if (body.classList.contains('dark-mode')) {
+          logo.src = 'assets/logo_darkmode_onheader.png';
         } else {
-          logo.src = "assets/logo_lightmode_onheader.png";
+          logo.src = 'assets/logo_lightmode_onheader.png';
         }
       }
 
-      function updateIcon() {
-        if (!iconSpan) return;
-        iconSpan.textContent = body.classList.contains("dark-mode") ? "🌙" : "☀️";
-      }
-
-      if (localStorage.getItem("theme") === "dark") {
-        body.classList.add("dark-mode");
-      }
-      updateLogo();
-      updateIcon();
-
-      if (toggleButton) {
-        toggleButton.addEventListener("click", function () {
-          body.classList.toggle("dark-mode");
-          localStorage.setItem(
-            "theme",
-            body.classList.contains("dark-mode") ? "dark" : "light"
-          );
-          updateLogo();
-          updateIcon();
+      function updateIcons() {
+        toggleButtons.forEach(btn => {
+          const iconSpan = btn.querySelector('.icon');
+          if (!iconSpan) return;
+          iconSpan.textContent = body.classList.contains('dark-mode') ? '🌙' : '☀️';
         });
       }
+
+      if (localStorage.getItem('theme') === 'dark') {
+        body.classList.add('dark-mode');
+      }
+      updateLogo();
+      updateIcons();
+
+      toggleButtons.forEach(btn => {
+        btn.addEventListener('click', function () {
+          body.classList.toggle('dark-mode');
+          localStorage.setItem(
+            'theme',
+            body.classList.contains('dark-mode') ? 'dark' : 'light'
+          );
+          updateLogo();
+          updateIcons();
+        });
+      });
     });
   </script>
+
+
 </body>
 </html>
