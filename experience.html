@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>DevForge IT | Managed IT & Cybersecurity Services</title>
+  <meta name="description" content="DevForge IT provides managed IT support, cybersecurity, and cloud services for small businesses and creators, combining operations, web, and security expertise." />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "DevForge IT",
+    "url": "https://devforgeit.com",
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "email": "devforge.cloudportal@gmail.com",
+      "contactType": "customer support"
+    }]
+  }
+  </script>
+
+  <!-- Open Graph Protocol meta tags for LinkedIn sharing -->
+  <meta property="og:title" content="DevForge IT — Managed IT & Cybersecurity Services" />
+  <meta property="og:description" content="DevForge IT provides managed IT support, cybersecurity tune-ups, and web solutions for small businesses and creators across Central Florida and remote." />
+  <meta property="og:url" content="https://devforgeit.com" />
+  <meta property="og:image" content="https://devforgeit.com/preview.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="DevForge IT" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* Light + dark global backgrounds */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url("assets/bg-light-circuits.jpg");
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      color: #333;
+    }
+
+    body.dark-mode {
+      background-image: url("assets/bg-dark-circuits.jpg");
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      color: #e5e7eb;
+    }
+
+    /* Main content panel for readability */
+    main.container {
+      background: rgba(255, 255, 255, 0.88);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      margin-top: 2rem;
+    }
+
+    body.dark-mode main.container {
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    /* === HERO HEADER LAYOUT (logo + nav) === */
+    .hero-header {
+      position: relative;
+      height: 260px;
+      background-image: url("assets/devforge-hero.jpg");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding-top: 180px;      /* move nav down under devforge.it.com */
+      padding-left: 520px;    /* move nav to the right */
+      margin-bottom: 0;
+    }
+
+    .hero-nav {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .hero-nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* SECOND HERO BAND WITH OWNER + ICONS */
+    .owner-hero {
+      position: relative;
+      height: 240px;
+      background-image: url("assets/devforge-owner-hero.jpg");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .owner-links.hero-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1200px;
+      color: #e6f7ff;
+    }
+
+    .owner-text h1 {
+      font-size: 2.4rem;
+      margin-bottom: 0.5rem;
+      color: #e6f7ff;
+    }
+
+    .owner-text p {
+      font-size: 1rem;
+      max-width: 600px;
+      color: #e6f7ff;
+    }
+
+    .hero-right {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .hero-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .hero-symbol {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.6);
+      color: #e6f7ff;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .hero-icon a {
+      text-decoration: none;
+    }
+
+    .hero-label {
+      font-size: 0.85rem;
+      color: #e6f7ff;
+    }
+
+    /* Nav + toggle */
+    nav {
+      margin-bottom: 0;
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    nav a {
+      margin: 0;
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1.2rem;
+      padding: 0.5rem 1rem;
+      transition: background 0.2s;
+      border-radius: 7px;
+    }
+
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffe0b2;
+    }
+
+    .mode-toggle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      color: #fff;
+      font-size: 1.2rem;
+    }
+
+    .mode-toggle:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-1px);
+    }
+
+    body.dark-mode .mode-toggle {
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    /* Section layout */
+    section {
+      margin-bottom: 3rem;
+      padding: 0 1rem;
+    }
+
+    .section-title {
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #0d6efd;
+      border-bottom: 3px solid #6610f2;
+      padding-bottom: 0.3rem;
+      max-width: fit-content;
+    }
+
+    .about-img {
+      width: 100px;
+      border-radius: 10px;
+      margin: 0.75rem 0 1.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      display: block;
+    }
+
+    .btn-custom {
+      background: #6610f2;
+      color: #ffffff;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      border-radius: 7px;
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 0.75rem;
+    }
+
+    .btn-custom:hover {
+      background: #0d6efd;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    footer {
+      padding: 2rem 0;
+      text-align: center;
+      color: #666;
+      background: #f8f9fa;
+      margin-top: 3rem;
+      border-top: 1px solid #e3e3e3;
+      font-size: 1rem;
+    }
+
+    footer a {
+      color: #6610f2;
+      text-decoration: underline;
+    }
+
+    footer a:hover {
+      color: #0d6efd;
+    }
+
+    /* Dark-mode tweaks for content and footer */
+    body.dark-mode footer {
+      background: #181c21;
+      color: #aaa;
+      border-top: 1px solid #282c34;
+    }
+
+    .badge-dark {
+      display: none;
+    }
+
+    body.dark-mode .badge-light {
+      display: none;
+    }
+
+    body.dark-mode .badge-dark {
+      display: block;
+    }
+
+    /* About section overlay */
+    .about-container {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      margin: 1.5rem auto;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .about-bg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .about-overlay {
+      position: absolute;
+      inset: 8%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1rem;
+      color: #ffffff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+      background: rgba(0, 0, 0, 0.3);
+      padding: 2rem;
+      border-radius: 10px;
+    }
+
+    .about-quote {
+      font-size: 1.1rem;
+      font-weight: 700;
+      font-style: italic;
+      margin: 0;
+      max-width: 100%;
+    }
+
+    .about-body {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin: 0;
+      max-width: 100%;
+    }
+
+    body.dark-mode .about-overlay {
+      color: #f9fafb;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 1);
+    }
+
+    /* Footer logo size */
+    #mode-logo {
+      height: 64px;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      display: block;
+      margin: 0 auto 0.75rem auto;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 768px) {
+      nav {
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+      }
+
+      .owner-links.hero-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.25rem;
+      }
+
+      .hero-right {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .about-overlay {
+        position: static;
+        margin-top: -4px;
+        padding: 1.25rem;
+        border-radius: 0;
+      }
+
+      .about-quote {
+        font-size: 1rem;
+      }
+
+      .about-body {
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+
+      .about-container {
+        margin: 1rem 0 1.5rem 0;
+        border-radius: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- FIRST HERO IMAGE WITH NAV -->
+  <header class="hero-header">
+    <nav class="hero-nav">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="experience.html" class="active">Experience</a>
+      <a href="projects.html">Client Stories</a>
+      <a href="index.html#contact">Contact</a>
+      <button id="mode-toggle" class="mode-toggle" aria-label="Toggle light and dark mode">
+        <span class="icon">☀️</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- SECOND HERO BAND WITH OWNER GRAPHIC + ICONS -->
+  <section class="owner-hero">
+    <div class="owner-links hero-inner">
+      <div class="owner-text">
+        <h1>DevForge IT / Experience</h1>
+        <p>Hands-on IT operations, cybersecurity, and web work for small businesses, education, and remote teams.</p>
+      </div>
+      <div class="hero-right">
+        <div class="hero-icon">
+          <a href="https://www.linkedin.com/in/erik-j-v" target="_blank" rel="noopener noreferrer">
+            <span class="hero-symbol">in</span>
+          </a>
+          <span class="hero-label">LinkedIn</span>
+        </div>
+        <div class="hero-icon">
+          <a href="https://github.com/equicktruth-ctrl" target="_blank" rel="noopener noreferrer">
+            <span class="hero-symbol">{ }</span>
+          </a>
+          <span class="hero-label">GitHub</span>
+        </div>
+        <div class="hero-icon">
+          <a href="mailto:devforge.cloudportal@gmail.com">
+            <span class="hero-symbol">@</span>
+          </a>
+          <span class="hero-label">Contact</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPTIONAL THIRD COLORED BAND BELOW IMAGES -->
+  
+  <main class="container">
+    <section id="overview">
+      <div class="section-title">Experience Overview</div>
+      <p>
+        DevForge IT combines hands-on IT operations, cybersecurity, and web development work
+        across small businesses, education, and remote teams.
+      </p>
+    </section>
+    <section id="experience-photo" style="max-width: 900px; margin: 1.5rem auto 2rem; padding: 0 20px; text-align:center;">
+      <img src="assets/experience-office.jpg"
+          alt="DevForge IT workspace with systems and dashboards"
+          style="width:100%; max-width:620px; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,0.35);" />
+    </section>
+
+    <section id="team">
+      <div class="section-title">Who We Are</div>
+      <p>
+          DevForge IT is a two-person team. Erik focuses on IT operations, end-user support, and web workflows.
+          Dammie leads security as a SOC-style analyst with CompTIA cybersecurity certifications, handling
+          monitoring, incident detection and response, and hardening the tools your team uses every day.
+      </p>
+      <p>
+          Together we’ve supported small businesses, education environments, and remote teams that need
+          reliable systems without hiring a full in-house IT and security department.
+      </p>
+    </section>
+
+    <section id="roles">
+      <div class="section-title">Roles & Focus Areas</div>
+      <ul>
+        <li><strong>Technical Operations & Support:</strong> Troubleshooting devices, Wi‑Fi, SaaS logins, and day‑to‑day user issues for remote and on‑site teams.</li>
+        <li><strong>Cybersecurity & Protection:</strong> Implementing MFA, password managers, backups, and basic security policies that match small-business risk and budget.</li>
+        <li><strong>Web & Cloud Workflows:</strong> Building and maintaining sites, automations, and cloud tools that support everyday operations.</li>
+      </ul>
+    </section>
+
+    <section id="tools">
+      <div class="section-title">Tools & Platforms</div>
+      <p>
+        Experience with Microsoft 365, Azure AI, SAP ABAP fundamentals, GitHub, Netlify, and modern
+        HTML/CSS/JavaScript workflows, plus ticketing and collaboration tools used by remote teams.
+      </p>
+    </section>
+
+    <section id="certifications">
+      <div class="section-title">Selected Certifications</div>
+      <p>
+        Highlights include Microsoft Azure AI Fundamentals (AI‑900), IBM AI and Big Data foundations,
+        SAP ABAP Platform fundamentals, multiple LinkedIn Learning certificates, and full CompTIA
+        cybersecurity track coverage from Dammie.
+      </p>
+      <a href="services.html" class="btn-custom">See Services Powered by This →</a>
+    </section>
+  </main>
+
+  <footer>
+  <img id="mode-logo" src="assets/logo_lightmode_onheader.png" alt="DevForge IT logo" />
+  <div>
+    Built with HTML, CSS & JavaScript in VS Code • Deployed from GitHub to our live DevForge IT site
+  </div>
+</footer>
+
+  <!--
+  <script>
+    async function askPerplexity(question) {
+      try {
+        const response = await fetch("/.netlify/functions/ask", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ question }),
+        });
+
+        if (!response.ok) {
+          throw new Error(`API error: ${response.status} ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        return data.answer || "No answer received.";
+      } catch (error) {
+        return "Error: " + error.message;
+      }
+    }
+
+    document.getElementById("ask-btn").addEventListener("click", async () => {
+      const questionEl = document.getElementById("question-input");
+      const answerEl = document.getElementById("answer-output");
+      const question = questionEl.value.trim();
+
+      if (!question) {
+        answerEl.textContent = "Please enter a question.";
+        return;
+      }
+
+      answerEl.textContent = "Thinking...";
+      const answer = await askPerplexity(question);
+      answerEl.textContent = answer;
+    });
+  </script>
+  --> 
+  <script>
+    // Light/Dark Mode toggle with sun/moon icon
+    document.addEventListener('DOMContentLoaded', function () {
+      const toggleButton = document.getElementById("mode-toggle");
+      const body = document.body;
+      const logo = document.getElementById("mode-logo");
+      const iconSpan = toggleButton ? toggleButton.querySelector(".icon") : null;
+
+      function updateLogo() {
+        if (body.classList.contains("dark-mode")) {
+          logo.src = "assets/logo_darkmode_onheader.png";
+        } else {
+          logo.src = "assets/logo_lightmode_onheader.png";
+        }
+      }
+
+      function updateIcon() {
+        if (!iconSpan) return;
+        iconSpan.textContent = body.classList.contains("dark-mode") ? "🌙" : "☀️";
+      }
+
+      if (localStorage.getItem("theme") === "dark") {
+        body.classList.add("dark-mode");
+      }
+      updateLogo();
+      updateIcon();
+
+      if (toggleButton) {
+        toggleButton.addEventListener("click", function () {
+          body.classList.toggle("dark-mode");
+          localStorage.setItem(
+            "theme",
+            body.classList.contains("dark-mode") ? "dark" : "light"
+          );
+          updateLogo();
+          updateIcon();
+        });
+      }
+    });
+  </script>
+
+  <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+</body>
+</html>

@@ -1,46 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Projects - Erik Vigorito</title>
+  <title>DevForge IT | Client Stories & Projects</title>
+  <meta name="description" content="Client stories and live GitHub projects from DevForge IT, showcasing web, automation, and security work for small teams." />
+
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "DevForge IT",
+    "url": "https://devforgeit.com",
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "email": "devforge.cloudportal@gmail.com",
+      "contactType": "customer support"
+    }]
+  }
+  </script>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="DevForge IT — Client Stories & Projects" />
+  <meta property="og:description" content="See real projects, experiments, and tools DevForge IT ships for web, automation, and security." />
+  <meta property="og:url" content="https://devforgeit.com/projects.html" />
+  <meta property="og:image" content="https://devforgeit.com/preview.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="DevForge IT" />
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+
   <style>
+    /* Global backgrounds (match index/services) */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f5f5f5;
+      background-image: url("assets/bg-light-circuits.jpg");
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
       color: #333;
     }
 
-    header {
+    body.dark-mode {
+      background-image: url("assets/bg-dark-circuits.jpg");
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      color: #e5e7eb;
+    }
+
+    main.container {
+      background: rgba(255, 255, 255, 0.88);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      margin-top: 2rem;
+    }
+
+    body.dark-mode main.container {
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    /* Hero header */
+    .hero-header {
       position: relative;
+      height: 260px;
+      background-image: url("assets/devforge-hero.jpg");
+      background-size: cover;
+      background-position: center;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #0d6efd 0%, #6610f2 60%, #28a745 100%);
-      color: white;
-      margin-bottom: 2.5rem;
-      padding: 2rem 0 1.5rem 0;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding-top: 180px;
+      padding-left: 520px;
+      margin-bottom: 0;
     }
 
-    #mode-logo {
-      height: 64px;
-      border-radius: 10px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-      display: block;
-      margin: 0 auto 0.75rem auto;
+    .hero-nav {
+      display: flex;
+      align-items: center;
+      gap: 48px;
     }
 
-    .header-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      flex: 1;
+    .hero-nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
     }
 
     nav {
-      margin-bottom: 1.5rem;
+      margin-bottom: 0;
       display: flex;
       gap: 2rem;
       align-items: center;
@@ -90,36 +140,52 @@
       background: rgba(0, 0, 0, 0.4);
     }
 
-    body.dark-mode {
-      background-color: #23272f;
-      color: #fff;
+    /* Section layout */
+    section {
+      margin-bottom: 3rem;
+      padding: 0 1rem;
     }
 
-    body.dark-mode header {
-      background: linear-gradient(135deg, #333e60 0%, #37375c 60%, #1a422e 100%);
-      color: #d1dbe7;
+    .section-title {
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #0d6efd;
+      border-bottom: 3px solid #6610f2;
+      padding-bottom: 0.3rem;
+      max-width: fit-content;
     }
 
-    /* Projects Page Specific Styles */
+    /* Projects hero */
     .projects-hero {
-      padding: 60px 20px;
+      padding: 40px 20px 10px;
       text-align: center;
-      color: white;
     }
 
     .projects-hero h1 {
-      font-size: 3rem;
+      font-size: 2.4rem;
       margin-bottom: 10px;
       font-weight: 700;
+      color: #111827;
     }
 
     .projects-hero p {
-      font-size: 1.2rem;
+      font-size: 1.05rem;
       opacity: 0.9;
       max-width: 700px;
       margin: 0 auto;
+      color: #4b5563;
     }
 
+    body.dark-mode .projects-hero h1 {
+      color: #e5e7eb;
+    }
+
+    body.dark-mode .projects-hero p {
+      color: #d1d5db;
+    }
+
+    /* Controls + grid (from old projects page) */
     .projects-controls {
       max-width: 1200px;
       margin: 30px auto;
@@ -136,6 +202,10 @@
       font-size: 1rem;
     }
 
+    body.dark-mode .repo-count {
+      color: #e5e7eb;
+    }
+
     .sort-dropdown {
       padding: 10px 15px;
       border: 2px solid #667eea;
@@ -149,7 +219,7 @@
 
     .projects-grid {
       max-width: 1200px;
-      margin: 0 auto 60px;
+      margin: 0 auto 40px;
       padding: 0 20px;
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -171,6 +241,11 @@
       border-color: #667eea;
     }
 
+    body.dark-mode .project-card {
+      background: #111827;
+      border-color: #374151;
+    }
+
     .project-header {
       display: flex;
       align-items: center;
@@ -184,6 +259,10 @@
       color: #1f2937;
       margin: 0;
       flex: 1;
+    }
+
+    body.dark-mode .project-name {
+      color: #e5e7eb;
     }
 
     .project-name a {
@@ -206,6 +285,10 @@
       line-height: 1.6;
       margin-bottom: 15px;
       min-height: 60px;
+    }
+
+    body.dark-mode .project-description {
+      color: #d1d5db;
     }
 
     .project-tags {
@@ -231,6 +314,10 @@
       margin-bottom: 15px;
       color: #6b7280;
       font-size: 0.9rem;
+    }
+
+    body.dark-mode .project-meta {
+      color: #9ca3af;
     }
 
     .meta-item {
@@ -270,16 +357,16 @@
 
     .loading {
       text-align: center;
-      padding: 60px 20px;
+      padding: 40px 20px;
       color: #667eea;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
 
     .error {
       text-align: center;
-      padding: 60px 20px;
+      padding: 40px 20px;
       color: #dc2626;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
 
     .view-all-btn {
@@ -288,12 +375,12 @@
       gap: 8px;
       background: white;
       color: #667eea;
-      padding: 15px 30px;
+      padding: 12px 24px;
       border-radius: 8px;
       text-decoration: none;
       font-weight: 600;
       border: 2px solid #667eea;
-      margin: 40px auto;
+      margin: 10px auto;
       transition: all 0.3s ease;
     }
 
@@ -304,7 +391,7 @@
 
     .view-all-container {
       text-align: center;
-      margin: 40px 0;
+      margin: 20px 0 0;
     }
 
     footer {
@@ -317,34 +404,25 @@
       font-size: 1rem;
     }
 
-    footer a {
-      color: #6610f2;
-      text-decoration: underline;
-    }
-
-    footer a:hover {
-      color: #0d6efd;
-    }
-
     body.dark-mode footer {
       background: #181c21;
       color: #aaa;
       border-top: 1px solid #282c34;
     }
 
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-      }
+    #mode-logo {
+      height: 64px;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      display: block;
+      margin: 0 auto 0.75rem auto;
+    }
 
+    @media (max-width: 768px) {
       nav {
         flex-wrap: wrap;
         gap: 1rem;
         justify-content: center;
-      }
-
-      .projects-hero h1 {
-        font-size: 2rem;
       }
 
       .projects-grid {
@@ -358,68 +436,89 @@
     }
   </style>
 </head>
-<body>
-  <header>
-    <div class="header-content">
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="projects.html" class="active">Projects</a>
-        <a href="skills.html">Skills</a>
-        <a href="experience.html">Experience</a>
-        <a href="index.html#about">About</a>
-        <a href="index.html#blog">Blog</a>
-        <a href="index.html#contact">Contact</a>
-        <a href="skills.html#education">Education</a>
-        <button id="mode-toggle" class="mode-toggle" aria-label="Toggle light and dark mode">
-          <span class="icon">☀️</span>
-        </button>
-      </nav>
 
-      <div class="projects-hero">
-        <h1>My Projects</h1>
-        <p>A collection of projects I've been working on. From web applications to API integrations, here's what keeps me busy.</p>
-      </div>
-    </div>
+<body>
+  <!-- HERO WITH NAV -->
+  <header class="hero-header">
+    <nav class="hero-nav">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="experience.html">Experience</a>
+      <a href="projects.html" class="active">Client Stories</a>
+      <a href="index.html#contact">Contact</a>
+      <button id="mode-toggle" class="mode-toggle" aria-label="Toggle light and dark mode">
+        <span class="icon">☀️</span>
+      </button>
+    </nav>
   </header>
 
-  <div class="projects-controls">
-    <div class="repo-count" id="repoCount">Loading repositories...</div>
-    <select class="sort-dropdown" id="sortDropdown" onchange="sortProjects()">
-      <option value="updated">Recently Updated</option>
-      <option value="stars">Most Stars</option>
-      <option value="name">Name (A-Z)</option>
-    </select>
-  </div>
+  <main class="container">
+    <section id="projects-intro" style="max-width: 900px; margin: 2rem auto 1rem; padding: 0 20px;">
+      <div class="section-title">How We Use GitHub</div>
+      <p>
+        DevForge IT uses GitHub to track experiments, internal tools, and public examples you can review
+        before we work together. Most client code lives in private repos; this page highlights public work
+        that reflects how we think about automation, security, and clean web builds.
+      </p>
+    </section>
 
-  <section id="portfolio-build" style="max-width: 900px; margin: 2rem auto 3rem; padding: 2rem; background: #1f2937; border-radius: 12px;">
-    <h2 style="color: #ffffff; margin-bottom: 0.75rem;">How I Built My Portfolio</h2>
-    <p style="color: #d1d5db; margin-bottom: 1rem;">
-      A step-by-step walkthrough of how I designed, developed, and deployed this portfolio website, including layout decisions, GitHub Pages setup, dark mode, and API integrations.
-    </p>
-    <div style="margin-bottom: 1rem; color: #9ca3af;">
-      <strong>Tech used:</strong> HTML, CSS, JavaScript, GitHub Pages, Netlify Functions, Perplexity API.
+    <section id="projects-snapshot" style="max-width: 900px; margin: 1.5rem auto 2.5rem; padding: 0 20px; text-align:center;">
+      <img src="assets/projects-office.jpg"
+          alt="DevForge IT workspace with monitoring dashboards"
+          style="width:100%; max-width:520px; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,0.35); margin-bottom:1rem;" />
+      <h2 style="font-size:1.5rem; font-weight:700; margin-bottom:0.5rem;">
+        What Our Projects Look Like
+      </h2>
+      <p style="margin-bottom:0.5rem;">
+        Most Client Stories start in a workspace like this—dashboards up, tickets open, and code or automations
+        being tested before anything touches production.
+      </p>
+      <p style="margin:0;">
+        The GitHub feed below highlights a mix of internal tools, experiments, and public examples that reflect
+        how we approach stability, security, and clean web builds.
+      </p>
+    </section>
+
+    <section id="projects-hero-block">
+      <div class="projects-hero">
+        <h1>Client Stories & Projects</h1>
+        <p>
+          Recent builds, experiments, and tools from DevForge IT — pulling live from our GitHub work
+          so you can see what we ship for web, automation, and security.
+        </p>
+      </div>
+    </section>
+
+    <div class="projects-controls">
+      <div class="repo-count" id="repoCount">Loading repositories...</div>
+      <select class="sort-dropdown" id="sortDropdown" onchange="sortProjects()">
+        <option value="updated">Recently Updated</option>
+        <option value="stars">Most Stars</option>
+        <option value="name">Name (A-Z)</option>
+      </select>
     </div>
-    <a href="blog/post1.html" class="github-btn" style="width: auto; display: inline-flex;">
-      Read the Case Study →
-    </a>
-  </section>
 
-  <div class="projects-grid" id="projectsGrid">
-    <div class="loading">Loading your projects from GitHub...</div>
-  </div>
+    <div class="projects-grid" id="projectsGrid">
+      <div class="loading">Loading your projects from GitHub...</div>
+    </div>
 
-  <div class="view-all-container">
-    <a href="https://github.com/equicktruth-ctrl?tab=repositories" target="_blank" class="view-all-btn">
-      <span>View All Projects on GitHub</span>
-      <span>↗</span>
-    </a>
-  </div>
+    <div class="view-all-container">
+      <a href="https://github.com/equicktruth-ctrl?tab=repositories" target="_blank" class="view-all-btn">
+        <span>View Erik’s Repositories on GitHub</span>
+        <span>↗</span>
+      </a>
+      <br /><br />
+      <a href="https://github.com/Secmode?tab=repositories" target="_blank" class="view-all-btn">
+        <span>View Secmode’s Security Repositories</span>
+        <span>↗</span>
+      </a>
+    </div>
+  </main>
 
   <footer>
-    <img id="mode-logo" src="assets/logo_lightmode_onheader.png" alt="Logo" />
+    <img id="mode-logo" src="assets/logo_lightmode_onheader.png" alt="DevForge IT logo" />
     <div>
-      Built with HTML, CSS & JavaScript in VS Code • Deployed via GitHub Pages<br />
-      
+      Built with HTML, CSS & JavaScript in VS Code • Deployed from GitHub to our live DevForge IT site
     </div>
   </footer>
 
@@ -534,7 +633,7 @@
     fetchGitHubRepos();
   </script>
 
-  <!-- Light/Dark Mode Script with sun/moon -->
+  <!-- Light/Dark Mode Script -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const toggleButton = document.getElementById("mode-toggle");
@@ -555,7 +654,7 @@
         iconSpan.textContent = body.classList.contains("dark-mode") ? "🌙" : "☀️";
       }
 
-      if (localStorage.getItem("mode") === "dark") {
+      if (localStorage.getItem("theme") === "dark") {
         body.classList.add("dark-mode");
       }
       updateLogo();
@@ -565,7 +664,7 @@
         toggleButton.addEventListener("click", function () {
           body.classList.toggle("dark-mode");
           localStorage.setItem(
-            "mode",
+            "theme",
             body.classList.contains("dark-mode") ? "dark" : "light"
           );
           updateLogo();
