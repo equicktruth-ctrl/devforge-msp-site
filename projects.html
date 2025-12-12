@@ -50,6 +50,16 @@
       background-position: center;
       color: #e5e7eb;
     }
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    .projects-grid,
+    .project-card {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
 
     main.container {
       background: rgba(255, 255, 255, 0.88);
@@ -62,7 +72,7 @@
       background: rgba(15, 23, 42, 0.9);
     }
 
-    /* Hero header */
+    /* Hero header — same desktop positioning as index.html */
     .hero-header {
       position: relative;
       height: 260px;
@@ -76,7 +86,7 @@
       padding-left: 520px;
       margin-bottom: 0;
     }
-
+    
     .hero-nav {
       display: flex;
       align-items: center;
@@ -424,6 +434,7 @@
       display: none;
     }
 
+    /* Mobile nav + layout — matches index/experience */
     @media (max-width: 768px) {
       /* Hide hero overlay nav; show bar nav */
       .desktop-nav {
@@ -468,7 +479,7 @@
         align-items: flex-start;
       }
     }
-  </style>
+</style>
 </head>
 
 <body>

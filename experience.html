@@ -62,7 +62,7 @@
       background: rgba(15, 23, 42, 0.9);
     }
 
-    /* === HERO HEADER LAYOUT (logo + nav) === */
+    /* === HERO HEADER LAYOUT (logo + nav) — copied from index.html */
     .hero-header {
       position: relative;
       height: 260px;
@@ -72,8 +72,8 @@
       display: flex;
       align-items: flex-start;
       justify-content: flex-start;
-      padding-top: 180px;      /* move nav down under devforge.it.com */
-      padding-left: 520px;     /* move nav to the right */
+      padding-top: 180px;      /* same as index */
+      padding-left: 520px;     /* same as index */
       margin-bottom: 0;
     }
 
@@ -158,7 +158,7 @@
       color: #e6f7ff;
     }
 
-    /* Nav + toggle */
+    /* Nav + toggle shared */
     nav {
       margin-bottom: 0;
       display: flex;
@@ -285,7 +285,7 @@
       display: block;
     }
 
-    /* About section overlay (if used later) */
+    /* About container — keep if you use an overlay on this page */
     .about-container {
       position: relative;
       width: 100%;
@@ -351,7 +351,7 @@
       display: none;
     }
 
-    /* Mobile nav + layout */
+    /* Mobile nav + layout — copied from index.html */
     @media (max-width: 768px) {
       /* Hide hero overlay nav; show bar nav */
       .desktop-nav {
@@ -385,6 +385,14 @@
 
       .mobile-nav .mode-toggle {
         margin-left: 0.5rem;
+      }
+
+      /* Shorter hero image, centered for phones */
+      .hero-header {
+        height: 200px;
+        padding: 0;
+        align-items: center;
+        justify-content: center;
       }
 
       .owner-links.hero-inner {
