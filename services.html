@@ -9,7 +9,7 @@
   <meta name="description" content="Managed IT support, cybersecurity tune-ups, small business websites, and cloud automation for Central Florida teams and remote clients." />
   <link rel="icon" href="assets/logo_lightmode_onheader.png" type="image/png" />
 
-  <!-- Schema + Open Graph (same pattern as index.html) -->
+  <!-- Schema + Open Graph -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -31,9 +31,8 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="DevForge IT" />
 
-  <!-- Bootstrap + shared CSS -->
+  <!-- Bootstrap (same as index) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
 
   <style>
     /* Light + dark global backgrounds (match index.html) */
@@ -66,7 +65,7 @@
       background: rgba(15, 23, 42, 0.9);
     }
 
-    /* HERO HEADER (reuse from index) */
+    /* HERO HEADER (same as index) */
     .hero-header {
       position: relative;
       height: 260px;
@@ -93,7 +92,7 @@
       font-weight: 600;
     }
 
-    /* SECOND HERO BAND WITH OWNER + ICONS */
+    /* SECOND HERO BAND WITH OWNER + ICONS (same layout as index) */
     .owner-hero {
       position: relative;
       height: 240px;
@@ -287,7 +286,7 @@
       margin-bottom: 0.5rem;
     }
 
-    /* Footer reuse */
+    /* Footer (same as index) */
     footer {
       padding: 2rem 0;
       text-align: center;
@@ -321,50 +320,65 @@
       margin: 0 auto 0.75rem auto;
     }
 
-    /* Mobile */
     /* Desktop: hide mobile bar */
-.mobile-nav {
-  display: none;
-}
-
-/* Mobile */
-  @media (max-width: 768px) {
-    .desktop-nav {
+    .mobile-nav {
       display: none;
     }
 
-    .mobile-nav {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem;
-      background: rgba(0, 0, 0, 0.85);
-      padding: 0.5rem 1rem;
-      width: 100%;
-      margin-bottom: 0.75rem;
+    /* Mobile */
+    @media (max-width: 768px) {
+      .desktop-nav {
+        display: none;
+      }
+
+      .mobile-nav {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        background: rgba(0, 0, 0, 0.85);
+        padding: 0.5rem 1rem;
+        width: 100%;
+        margin-bottom: 0.75rem;
+      }
+
+      .mobile-nav a {
+        color: #fff;
+        font-weight: 600;
+        text-decoration: none;
+        margin: 0 0.25rem;
+        font-size: 1rem;
+        white-space: nowrap;
+      }
+
+      .mobile-nav a:hover {
+        text-decoration: underline;
+      }
+
+      .mobile-nav .mode-toggle {
+        margin-left: 0.5rem;
+      }
+
+      /* Same mobile tweaks as index */
+      .hero-header {
+        height: 200px;
+        padding: 0;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .owner-links.hero-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.25rem;
+      }
+
+      .hero-right {
+        width: 100%;
+        justify-content: flex-start;
+      }
     }
-
-    .mobile-nav a {
-      color: #fff;
-      font-weight: 600;
-      text-decoration: none;
-      margin: 0 0.25rem;
-      font-size: 1rem;
-      white-space: nowrap;
-    }
-
-    .mobile-nav a:hover {
-      text-decoration: underline;
-    }
-
-    .mobile-nav .mode-toggle {
-      margin-left: 0.5rem;
-    }
-
-    /* keep your existing hero-header/owner-links/hero-right rules here */
-  }
-
   </style>
 </head>
 
@@ -383,6 +397,7 @@
     </nav>
   </header>
 
+  <!-- MOBILE NAV BAR -->
   <nav class="mobile-nav">
     <a href="index.html">Home</a>
     <a href="services.html" class="active">Services</a>
@@ -424,7 +439,7 @@
     </div>
   </section>
 
-    <main class="container">
+  <main class="container">
     <section id="services-intro">
       <div class="section-title">How We Help</div>
       <p>
@@ -450,10 +465,9 @@
 
       <div class="service-card">
         <h2>🛡️ Cybersecurity Tune-Ups</h2>
-          <p class="service-meta">
-            Led by Dammie, a SOC-style analyst and CompTIA-certified cybersecurity specialist, focused on practical security for small teams.
-          </p>
-
+        <p class="service-meta">
+          Led by Dammie, a SOC-style analyst and CompTIA-certified cybersecurity specialist, focused on practical security for small teams.
+        </p>
         <p>
           We roll out password managers, MFA, backups, and phishing training, then lock down core accounts
           and devices. You also get a simple written checklist so you know exactly what was hardened.
@@ -462,11 +476,11 @@
           Read “5 Security Wins” →
         </a>
       </div>
-      
+
       <section id="cybersecurity-visual" style="max-width: 900px; margin: 0 auto 2.5rem; padding: 0 20px; text-align:center;">
         <img src="assets/services-cybersecurity.jpg"
-            alt="DevForge IT cybersecurity and monitoring visual"
-            style="width:100%; max-width:520px; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,0.35);" />
+             alt="DevForge IT cybersecurity and monitoring visual"
+             style="width:100%; max-width:520px; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,0.35);" />
       </section>
 
       <div class="service-card">
@@ -509,7 +523,8 @@
         Ask Which Service Fits →
       </a>
     </section>
-        <section id="faq">
+
+    <section id="faq">
       <div class="section-title">Quick Questions</div>
       <ul style="list-style:none; padding-left:0; max-width:800px;">
         <li style="margin-bottom:1rem;">
@@ -530,7 +545,6 @@
         </li>
       </ul>
     </section>
-
   </main>
 
   <footer>
@@ -540,6 +554,7 @@
     </div>
   </footer>
 
+  <!-- Shared light/dark toggle logic (same pattern as index) -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const toggleButtons = document.querySelectorAll('.theme-toggle');
@@ -582,7 +597,5 @@
       });
     });
   </script>
-
-
 </body>
 </html>
