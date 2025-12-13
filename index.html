@@ -426,7 +426,40 @@
         border-radius: 0;
       }
     }
+
+    /* Blog post list layout (applies on all screen sizes) */
+    .post-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 800px) {
+      .post-list {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .post-card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+
+    body.dark-mode .post-card {
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .post-card h2 {
+      margin-bottom: 0.25rem;
+    }
+
+    .post-card time {
+      opacity: 0.8;
+      font-size: 0.95rem;
+    }
   </style>
+
 </head>
 
 <body>
@@ -487,7 +520,8 @@
   </section>
 
   <main class="container">
-    <section id="who-we-help">
+    
+  <section id="who-we-help">
       <div class="section-title">Who We Help</div>
       <p>
         DevForge IT supports small businesses, solo professionals, and creators who need practical IT, security, and web help without an in‑house tech team — across Central Florida and remote.
@@ -572,20 +606,7 @@
           <strong>Cloud Setup & Automation:</strong>
           Organizing tools like Microsoft 365 and other SaaS apps, plus light scripts and automations to cut manual, repetitive work.
         </li>
-      </ul>
-
-      <section id="blog">
-        <div class="section-title">Blog</div>
-        <article>
-          <h3>5 Simple Security Wins for Small Teams</h3>
-          <small>December 11, 2025</small>
-          <p>
-            A quick, non‑technical guide to a few small changes — like better passwords, updates, and backups —
-            that dramatically reduce risk for small businesses and creators.
-          </p>
-          <a href="blog/post1.html" class="btn-custom">Read the Story →</a>
-        </article>
-      </section>
+      </ul>  
     </section>
 
     <section id="brand-statement">
@@ -676,6 +697,33 @@
       <a href="mailto:devforge.cloudportal@gmail.com" class="btn-custom">
         Email a Question to DevForge IT
       </a>
+    </section>
+    
+    <section>
+      <div class="section-title">Blog</div>
+
+      <div class="post-list">
+        <article class="post-card">
+          <h2><a href="blog/post1.html">5 Simple Security Wins for Small Teams</a></h2>
+          <p><time datetime="2025-12-11">December 11, 2025</time></p>
+          <p>A few changes to passwords, updates, and backups that dramatically reduce risk for small businesses.</p>
+          <a class="btn-custom" href="blog/post1.html">Read more →</a>
+        </article>
+
+        <article class="post-card">
+          <h2><a href="blog/post2.html">What MSP Onboarding Looks Like</a></h2>
+          <p><time datetime="2025-12-15">December 15, 2025</time></p>
+          <p>Exactly what happens in week 1–2 when DevForge IT takes over support and security.</p>
+          <a class="btn-custom" href="blog/post2.html">Read more →</a>
+        </article>
+
+        <article class="post-card">
+          <h2><a href="blog/post3.html">Website Checkup For Non‑Tech Teams</a></h2>
+          <p><time datetime="2025-12-20">December 20, 2025</time></p>
+          <p>A lightweight checklist for speed, security, and clarity so your site converts better.</p>
+          <a class="btn-custom" href="blog/post3.html">Read more →</a>
+        </article>
+      </div>
     </section>
   </main>
 
