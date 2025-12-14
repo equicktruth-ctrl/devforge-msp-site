@@ -314,24 +314,29 @@
       gap: 1rem;
       color: #ffffff;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
-      background: rgba(0, 0, 0, 0.3);
+      background: rgba(0, 0, 0, 0.4); /* only change: 0.3 -> 0.4 */
       padding: 2rem;
       border-radius: 10px;
     }
 
-    .about-quote {
-      font-size: 1.25rem;
-      font-weight: 700;
-      font-style: italic;
-      margin: 0;
-      max-width: 100%;
-    }
+    @media (max-width: 768px) {
+      .about-bg {
+        height: 360px;        /* slightly shorter on phones */
+      }
 
-    .about-body {
-      font-size: 1.05rem;
-      line-height: 1.6;
-      margin: 0;
-      max-width: 100%;
+      .about-overlay {
+        inset: 6%;
+        padding: 1.25rem;
+      }
+
+      .about-quote {
+        font-size: 1rem;
+      }
+
+      .about-body {
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
     }
 
     body.dark-mode .about-overlay {
@@ -429,6 +434,12 @@
         border-radius: 0;
       }
     }
+      @media (min-width: 992px) {
+      .about-bg {
+        height: 580px;
+        object-fit: cover;
+      }
+    }
 
     /* Blog post list layout (applies on all screen sizes) */
     .post-list {
@@ -513,7 +524,7 @@
           <span class="hero-label">GitHub</span>
         </div>
         <div class="hero-icon">
-          <a href="mailto:devforge.cloudportal@gmail.com">
+          <a href="mailto:hello@devforge.it.com">
             <span class="hero-symbol">@</span>
           </a>
           <span class="hero-label">Contact</span>
@@ -579,7 +590,7 @@
         <p>
           <strong>Dammie:</strong>
           <a href="https://www.linkedin.com/in/dammie-ajewole-935088280/" target="_blank" rel="noopener noreferrer">LinkedIn</a> ·
-          <a href="https://github.com/Secmode " target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://github.com/Secmode" target="_blank" rel="noopener noreferrer">GitHub</a>
         </p>
       </section>
     </section>
@@ -637,7 +648,7 @@
     <section id="contact">
       <div class="section-title">Contact</div>
 
-      <p>Email: <a href="mailto:devforge.cloudportal@gmail.com">devforge.cloudportal@gmail.com</a></p>
+      <p>Email: <a href="mailto:hello@devforge.it.com">hello@devforge.it.com</a></p>
 
       <p>LinkedIn:
         <a href="https://www.linkedin.com/in/erik-j-v"
@@ -646,7 +657,7 @@
         </a>
       </p>
 
-      <a href="mailto:devforge.cloudportal@gmail.com" class="btn-custom">
+      <a href="mailto:hello@devforge.it.com" class="btn-custom">
         Email DevForge IT
       </a>
       <a href="https://www.linkedin.com/in/erik-j-v"
@@ -655,7 +666,7 @@
         Message on LinkedIn
       </a>
 
-      <form action="mailto:devforge.cloudportal@gmail.com"
+      <form action="mailto:hello@devforge.it.com"
             method="POST" enctype="text/plain">
         <p>
           <label>Your Name<br />
@@ -697,7 +708,7 @@
         <li>Wondering if your current setup is “secure enough.”</li>
         <li>Thinking about a new website or tool but don’t know where to start.</li>
       </ul>
-      <a href="mailto:devforge.cloudportal@gmail.com" class="btn-custom">
+      <a href="mailto:hello@devforge.it.com" class="btn-custom">
         Email a Question to DevForge IT
       </a>
     </section>

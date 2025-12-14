@@ -15,7 +15,7 @@
     "url": "https://www.devforg.it.com",
     "contactPoint": [{
       "@type": "ContactPoint",
-      "email": "devforge.cloudportal@gmail.com",
+      "email": "hello@devforge.it.com",
       "contactType": "customer support"
     }]
   }
@@ -527,8 +527,9 @@
         What Our Projects Look Like
       </h2>
       <p style="margin-bottom:0.5rem;">
-        Most Client Stories start in a workspace like this—dashboards up, tickets open, and code or automations
+        Most client stories start in a workspace like this—dashboards up, tickets open, and code or automations
         being tested before anything touches production.
+
       </p>
       <p style="margin:0;">
         The GitHub feed below highlights a mix of internal tools, experiments, and public examples that reflect
@@ -544,7 +545,54 @@
         </p>
       </div>
     </section>
+    <!-- Fictional Client Stories go here -->
+    <section id="client-stories" style="max-width: 1000px; margin: 2rem auto 2.5rem; padding: 0 20px;">
+      <div class="section-title">Client Stories</div>
 
+      <!-- Story 1 -->
+      <article style="margin-bottom: 1.75rem;">
+        <h3 style="font-size:1.35rem; font-weight:700; margin-bottom:0.35rem;">
+          Keeping a Creative Studio’s Files in Sync
+        </h3>
+        <p style="margin-bottom:0.35rem;">
+          A three‑person design studio was juggling project files across laptops, USB drives, and ad‑hoc cloud folders. 
+          DevForge IT moved them to a structured cloud workspace with shared drives, versioned folders, and automatic backups, 
+          so every designer now opens the same source files and nothing critical lives on a single device. 
+        </p>
+        <p style="margin:0;">
+          Outcome: Fewer “which file is final?” moments, easier onboarding for contractors, and near‑zero downtime when a laptop failed mid‑project. 
+        </p>
+      </article>
+
+      <!-- Story 2 -->
+      <article style="margin-bottom: 1.75rem;">
+        <h3 style="font-size:1.35rem; font-weight:700; margin-bottom:0.35rem;">
+          Adding Basic Security to a Local Retail Shop
+        </h3>
+        <p style="margin-bottom:0.35rem;">
+          A neighborhood retail shop relied on a single shared email login and rarely installed updates. 
+          DevForge IT introduced a password manager, unique accounts for staff, multi‑factor authentication on email and point‑of‑sale access, 
+          and automated operating system updates on their front‑desk PCs. 
+        </p>
+        <p style="margin:0;">
+          Outcome: Stronger protection against password reuse and phishing, fewer urgent “computer acting strange” calls, and clearer visibility into who has access to what. 
+        </p>
+      </article>
+
+      <!-- Story 3 -->
+      <article>
+        <h3 style="font-size:1.35rem; font-weight:700; margin-bottom:0.35rem;">
+          Streamlining Onboarding for a Remote Training Team
+        </h3>
+        <p style="margin-bottom:0.35rem;">
+          A small online training company was manually creating accounts in multiple SaaS tools every time they hired a new instructor. 
+          DevForge IT built a simple onboarding checklist with light automation: shared templates for accounts, standardized groups, and scripted steps to provision access in minutes instead of hours.
+        </p>
+        <p style="margin:0;">
+          Outcome: Onboarding time per hire dropped from an afternoon to under 30 minutes, while access is now documented and easier to revoke when contracts end. 
+        </p>
+      </article> 
+    </section>
     <div class="projects-controls">
       <div class="repo-count" id="repoCount">Loading repositories...</div>
       <select class="sort-dropdown" id="sortDropdown" onchange="sortProjects()">
@@ -555,7 +603,7 @@
     </div>
 
     <div class="projects-grid" id="projectsGrid">
-      <div class="loading">Loading your projects from GitHub...</div>
+      <div class="loading">Loading projects from GitHub...</div>
     </div>
 
     <div class="view-all-container">
