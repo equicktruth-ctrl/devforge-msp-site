@@ -436,7 +436,6 @@
 
     /* Mobile nav + layout — matches index/experience */
     @media (max-width: 768px) {
-      /* Hide hero overlay nav; show bar nav */
       .desktop-nav {
         display: none;
       }
@@ -470,6 +469,14 @@
         margin-left: 0.5rem;
       }
 
+      /* NEW: override desktop hero padding on phones */
+      .hero-header {
+        height: 200px;
+        padding: 0;
+        align-items: center;
+        justify-content: center;
+      }
+
       .projects-grid {
         grid-template-columns: 1fr;
       }
@@ -479,7 +486,8 @@
         align-items: flex-start;
       }
     }
-</style>
+
+  </style>
 </head>
 
 <body>
